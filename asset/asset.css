@@ -1,0 +1,8 @@
+body {
+    font-family: monospace;
+    padding: 2px;
+    padding-right: 250px;
+}
+
+table, th, td { text-align: center; }
+.assetprice {text-align: right; }
