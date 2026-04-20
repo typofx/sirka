@@ -1,6 +1,7 @@
-<?php include_once ('/home2/granna80/%/env.php'); ?>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/.scr/conexao.php'; ?>
-<?php include ('plata-math.php'); ?>
+<? include_once ('/home2/granna80/%/env.php'); ?>
+<? include_once $_SERVER['DOCUMENT_ROOT'] . '/.scr/conexao.php'; ?>
+<? include_once ('plata-math.php'); ?>
+<? include_once ('extract.php'); ?>
 
 <?php
 echo '<pre>';
@@ -16,6 +17,7 @@ $qtd_plata_pool__0x0E1_671a6 = number_format(json_decode(array(file_get_contents
 $api_endpoint = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=';
 
 $cryptocurrency = 'POL';
+$company_asset = 'PLT';
 
 $context = stream_context_create([
     'http' => [
@@ -25,7 +27,7 @@ $context = stream_context_create([
 ]);
 
 /*
-$company_asset = 'PLT';
+
 $coins_query = $conn->query("SELECT ticker_symbol FROM granna80_bdlinks.assets WHERE network = 'polygon' AND ticker_symbol != '{$company_asset}'");
 if ($coins_query) {
     while ($asset_row = $coins_query->fetch_assoc()) {
@@ -34,10 +36,6 @@ if ($coins_query) {
     $coins_query->free();
 }
 */
-
-function extract_rate_from_api_TEST($_api_endpoint, $_context, $_cryptocurrency, $_fiat) {
-    return json_decode(file_get_contents($_api_endpoint.$_cryptocurrency.'&convert='.$_fiat, false, $_context), true)['data'][$_cryptocurrency]['quote'][$_fiat]['price'];
-}
 
 $query = " SELECT * FROM granna80_bdlinks.assets WHERE network = 'fiduciary coin' ";
 $result = $conn->query($query);
@@ -53,13 +51,13 @@ if ($result->num_rows > 0) {
 //$url = $api_endpoint . '?symbol=' . $symbols . '&convert=USD';
 //$response = json_decode(file_get_contents($url, false, $context), true);
 
-print_r(extract_rate_from_api_TEST($api_endpoint, $context, 'POL', 'BRL')); echo '<br><br>';
+//print_r(extract_rate_from_api($api_endpoint, $context, 'WMATIC', 'BRL')); echo '<br><br>';
 
 foreach ($fiats as $fiat) {
     
     usleep(250);
 
-    ${$cryptocurrency.$fiat} = number_format((float)extract_rate_from_api_TEST($api_endpoint, $context, $cryptocurrency, $fiat), 8, '.', '');
+    ${$cryptocurrency.$fiat} = number_format((float)extract_rate_from_api($api_endpoint, $context, $cryptocurrency, $fiat), 8, '.', '');
     ${$fiat.$cryptocurrency} = number_format(1/(${$cryptocurrency.$fiat}), 8, '.', '');
     
     $prices_vs_usd[$cryptocurrency.$fiat] = ${$cryptocurrency.$fiat};
@@ -135,18 +133,6 @@ foreach (($coins ?? []) as $coin){
     $usd_vs_prices['USD'.$coin] = round((float)str_replace(',', '', ${'USD'.$coin}), 8);
 }
 
-$BRZUSD  = (float)($prices_vs_usd['BRZUSD']  ?? $prices_vs_usd['BRLUSD']  ?? 0);
-$EURSUSD = (float)($prices_vs_usd['EURSUSD'] ?? $prices_vs_usd['EURUSD']  ?? 0);
-$POLUSD  = (float)($prices_vs_usd['POLUSD']  ?? $prices_vs_usd['MATICUSD'] ?? $prices_vs_usd['WMATICUSD'] ?? 0);
-
-$BRLUSD   = $BRZUSD;
-$EURUSD   = $EURSUSD;
-$MATICUSD = $POLUSD; // MATIC não retorna o valor nessa API, usar POL]
-unset($usd_vs_prices['USDPOL']);
-
-$USDEUR   = number_format((1 / $EURUSD)   / ($EURUSD   > 1000 ? (10 ** 3) : 1) ?? 0, 8, '.', ',');
-$USDBRL   = number_format((1 / $BRZUSD)   / ($BRZUSD   > 1000 ? (10 ** 3) : 1) ?? 0, 8, '.', ',');
-$USDMATIC = number_format((1 / $MATICUSD) / ($MATICUSD > 1000 ? (10 ** 3) : 1) ?? 0, 8, '.', ',');
 
 $usd_vs_prices['USDMATIC'] = $USDMATIC;
 
