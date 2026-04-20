@@ -36,7 +36,7 @@ if ($coins_query) {
 */
 
 function extract_rate_from_api_TEST($_api_endpoint, $_context, $_cryptocurrency, $_fiat) {
-    return json_decode(file_get_contents($_api_endpoint.$_cryptocurrency, false, $_context), true)['data'][$_cryptocurrency]['quote'][$_fiat]['price'];
+    return json_decode(file_get_contents($_api_endpoint.$_cryptocurrency.'&convert='.$_fiat, false, $_context), true)['data'][$_cryptocurrency]['quote'][$_fiat]['price'];
 }
 
 $query = " SELECT * FROM granna80_bdlinks.assets WHERE network = 'fiduciary coin' ";
@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
 //$url = $api_endpoint . '?symbol=' . $symbols . '&convert=USD';
 //$response = json_decode(file_get_contents($url, false, $context), true);
 
-$fiats = ['USD'];
+print_r(extract_rate_from_api_TEST($api_endpoint, $context, 'POL', 'BRL')); echo '<br><br>';
 
 foreach ($fiats as $fiat) {
     
@@ -68,6 +68,8 @@ foreach ($fiats as $fiat) {
     echo $cryptocurrency.$fiat . ' : ' . $prices_vs_usd[$cryptocurrency.$fiat]. '<br>';
     echo $fiat.$cryptocurrency . ' : ' . $usd_vs_prices[$fiat.$cryptocurrency]. '<br>';
 }
+
+/*
 
     $EURUSD = number_format($usd_vs_prices['USDPOL'] / $usd_vs_prices['EURPOL'], 8, '.', '');
     $USDEUR = 1 / $EURUSD;
@@ -99,7 +101,7 @@ foreach ($fiats as $fiat) {
 foreach (($coins ?? []) as $coin) {
     $cmc_symbols[] = $cmc_symbol_map[$coin] ?? $coin;
 }
-$cmc_symbols = array_unique($cmc_symbols);
+//$cmc_symbols = array_unique($cmc_symbols);
 
 $symbols = implode(',', $cmc_symbols);
 $url = $api_endpoint . '?symbol=' . $symbols . '&convert=USD';
