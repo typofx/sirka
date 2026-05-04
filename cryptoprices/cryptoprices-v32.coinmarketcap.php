@@ -1,4 +1,3 @@
-<? include_once ('/home2/granna80/%/env.php'); ?>
 <? include_once $_SERVER['DOCUMENT_ROOT'] . '/.scr/conexao.php'; ?>
 <? include_once ('plata-math.php'); ?>
 <? include_once ('extract.php'); ?>
@@ -14,17 +13,12 @@ $json_plata_pool__0x0E1_671a6 = 'https://api.etherscan.io/v2/api?module=account&
 $qtd_wmatic_pool__0x0E1_671a6 = number_format(json_decode(array(file_get_contents($json_wmatic_pool__0x0E1_671a6))[0],true)['result'] / (10 ** 18) ?? 0 , 5, '.', ',');
 $qtd_plata_pool__0x0E1_671a6 = number_format(json_decode(array(file_get_contents($json_plata_pool__0x0E1_671a6))[0],true)['result'] / (10 ** 4) ?? 0 , 4, '.', ',');
 
-$api_endpoint = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=';
+$api_company = 'coinmarketcap';
+$api_endpoint = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
+$api_context = stream_context_create(['http' => ['method' => 'GET','header'=>"X-CMC_PRO_API_KEY: {$API_KEY_COINMARKETCAP}\r\nAccept: application/json\r\n"]]);
 
 $cryptocurrency = 'POL';
 $company_asset = 'PLT';
-
-$context = stream_context_create([
-    'http' => [
-        'method' => 'GET',
-        'header' => "X-CMC_PRO_API_KEY: {$API_KEY_COINMARKETCAP}\r\nAccept: application/json\r\n"
-    ]
-]);
 
 $query = " SELECT * FROM granna80_bdlinks.assets WHERE network = 'fiduciary coin' ";
 $result = $conn->query($query);
@@ -34,76 +28,63 @@ if ($result->num_rows > 0) {
         $fiats[] = strval($row['ticker_symbol']);
     }
 
-}   print_r($fiats); echo '<br>';
-
-print_r("WMATICBRL: " . extract_rate_from_api($api_endpoint, $context, 'WMATIC', 'BRL')); echo '<br><br>';
-print_r("WMATICEUR: " . extract_rate_from_api($api_endpoint, $context, 'WMATIC', 'EUR')); echo '<br><br>';
-print_r("WMATICUSD: " . extract_rate_from_api($api_endpoint, $context, 'WMATIC', 'USD')); echo '<br><br>';
-
-foreach ($fiats as $fiat) {
-    
-    usleep(250);
-
-    ${$cryptocurrency.$fiat} = number_format((float)extract_rate_from_api($api_endpoint, $context, $cryptocurrency, $fiat), 8, '.', '');
-    ${$fiat.$cryptocurrency} = number_format(1/(${$cryptocurrency.$fiat}), 8, '.', '');
-    
-    $prices_vs_usd[$cryptocurrency.$fiat] = ${$cryptocurrency.$fiat};
-    $usd_vs_prices[$fiat.$cryptocurrency] = ${$fiat.$cryptocurrency};
-    
-    echo $cryptocurrency.$fiat . ' : ' . $prices_vs_usd[$cryptocurrency.$fiat]. '<br>';
-    echo $fiat.$cryptocurrency . ' : ' . $usd_vs_prices[$fiat.$cryptocurrency]. '<br>';
 }
 
-//$usd_vs_prices['USDMATIC'] = $USDMATIC; 
+    foreach ($fiats as $fiat) {
+    
+        usleep(250);
+        
+        ${$cryptocurrency.$fiat} = number_format((float)extract_rate_from_api($api_company,$api_endpoint, $api_context, $cryptocurrency, $fiat), 8, '.', '');
+        ${$fiat.$cryptocurrency} = number_format(1/(float)(${$cryptocurrency.$fiat}), 8, '.', '');
+    
+        $prices_vs_usd[$cryptocurrency.$fiat] = ${$cryptocurrency.$fiat};
+        $usd_vs_prices[$fiat.$cryptocurrency] = ${$fiat.$cryptocurrency};
+   
+        echo $cryptocurrency.$fiat . ' : ' . $prices_vs_usd[$cryptocurrency.$fiat]. '<br>';
+        echo $fiat.$cryptocurrency . ' : ' . $usd_vs_prices[$fiat.$cryptocurrency]. '<br>';
 
-$EURUSD = number_format($usd_vs_prices['USDPOL'] / $usd_vs_prices['EURPOL'], 8, '.', '');
-$USDEUR = 1 / $EURUSD;
-
-$prices_vs_usd['EURUSD'] = $EURUSD;
-$usd_vs_prices['USDEUR'] = $USDEUR;
-echo 'EURUSD : ' . $EURUSD."<br>";
-echo 'USDEUR : ' . $USDEUR."<br>";
-
-$BRLUSD = number_format($usd_vs_prices['BRLPOL'] / $usd_vs_prices['USDPOL'], 8, '.', '');
-$USDBRL = 1 / $BRLUSD;
-$prices_vs_usd['BRLUSD'] = $BRLUSD;
-$usd_vs_prices['USDBRL'] = $USDBRL;
-echo 'BRLUSD : ' . $BRLUSD."<br>";
-echo 'USDBRL : ' . $USDBRL."<br>";
+        foreach ($fiats as $fiat_i) {
+    
+            if ($fiat != $fiat_i && ${$cryptocurrency.$fiat_i} > 0 && ${$cryptocurrency.$fiat} > 0) {
+                ${$fiat.$fiat_i} = ${$cryptocurrency.$fiat} / ${$cryptocurrency.$fiat_i};
+            echo $fiat.$fiat_i . ' : ' . ${$fiat.$fiat_i}. '<br>';
+        }
+    }
+    }
 
 $query = " SELECT * FROM granna80_bdlinks.assets WHERE network = 'polygon' AND ticker_symbol != '{$company_asset}' ";
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $coins[] = strval($row['ticker_symbol']);
+        $cryptos[] = strval($row['ticker_symbol']);
     }
 
-}print_r($coins); echo '<br>';
+} 
 
-foreach ($coins as $coin) {
+foreach ($cryptos as $crypto) {
     usleep(250);
 
-    $rate_usd = (float) extract_rate_from_api($api_endpoint, $context, $coin, 'USD');
-    if ($rate_usd > 0) {
-        //${$coin.'USD'} = number_format((float)(extract_rate_from_api($api_endpoint, $context, $coin, 'USD' )), 8, '.', '');
-        ${$coin . 'USD'} = number_format($rate_usd, 8, '.', '');
-        ${'USD' . $coin} = number_format(1 / $rate_usd, 8, '.', '');
+    if (extract_rate_from_api($api_company,$api_endpoint, $api_context, $crypto, 'USD') == true) {
+        ${$crypto.'USD'} = number_format((float)extract_rate_from_api($api_company,$api_endpoint, $api_context, $crypto, 'USD'), 8, '.', '');
 
-        $prices_vs_usd[strtoupper($coin) . 'USD'] = ${$coin . 'USD'};
-        $usd_vs_prices['USD' . strtoupper($coin)] = ${'USD' . $coin};
+        if (${$crypto.'USD'} > 0) {
 
-        echo $coin . 'USD' . ' : ' . $prices_vs_usd[$coin . 'USD'] . '<br>';
-        echo 'USD' . $coin . ' : ' . $usd_vs_prices['USD' . $coin] . '<br>';
-    } else {
-        echo $coin . 'USD' . ' : error (sem cotação / 429) <br>';
+            ${'USD'.$crypto} = round(1/(${$crypto.'USD'}), 8);
+        
+            $prices_vs_usd[$crypto.'USD'] = ${$crypto.'USD'};
+            $usd_vs_prices['USD'.$crypto] = ${'USD'.$crypto};
+
+            echo $crypto.'USD' . ' : ' . $prices_vs_usd[$crypto.'USD'] . '<br>';
+            echo 'USD'.$crypto . ' : ' . $usd_vs_prices['USD'.$crypto] . '<br>';
+        
+        } else {
+            echo $crypto . 'USD' . ' : error (NF) <br>';
+        }
     }
 }
-//livecoinwatch
-$plata_values = deploy_plata_rates($POLUSD, $POLEUR, $POLBRL, $qtd_plata_pool__0x0E1_671a6, $qtd_wmatic_pool__0x0E1_671a6, $PLT_circulating_supply);
 
-//coinmarketcap
-//$plata_values = deploy_plata_rates($MATICUSD, $EURSUSD, $BRZUSD, $qtd_plata_pool__0x0E1_671a6, $qtd_wmatic_pool__0x0E1_671a6, $PLTcirculatingSupply);
+$plata_values = deploy_plata_rates($POLUSD, $POLEUR, $POLBRL, $qtd_plata_pool__0x0E1_671a6, $qtd_wmatic_pool__0x0E1_671a6, $PLT_circulating_supply);
 
 $output = [
     'last_updated_at' => gmdate('d-m-Y H:i:s') . ' UTC',
