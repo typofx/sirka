@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0 0 40px;
+    background: #aaa;
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 14px;
+}
+
+.top-area {
+    width: 65%;
+    margin: 25px auto 20px;
+    text-align: center;
+}
+
+.top-area h1 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.info-box {
+    --box-padding: 20px;
+    --row-gap: 10px;
+    --logo-size: 92px;
+
+    background: #3D3D3D !important;
+    border: 1px solid #5A5A5A !important;
+    border-radius: 12px !important;
+    padding: var(--box-padding) !important;
+    text-align: left !important;
+    max-width: 500px;
+    margin: 25px auto 0;
+    font-family: 'Montserrat', sans-serif !important;
+    color: white !important;
+    line-height: 1.2 !important;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: var(--box-padding);
+    margin-bottom: 0;
+}
+
+.info-logo {
+    width: var(--logo-size);
+    height: auto; /* Permite escala proporcional, eliminando espacos vazios internos no topo/base */
+    object-fit: contain;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.token-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--row-gap);
+    flex: 1;
+}
+
+.info-title {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.token-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.token-symbol {
+    font-size: 20px;
+    font-weight: 700;
+    color: #999999;
+}
+
+.network-row {
+    display: flex;
+    align-items: center;
+}
+
+.network-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #CCCCCC;
+}
+
+.network-icon {
+    color: #8247E5;
+    font-size: 10px;
+}
+
+.token-address {
+    color: #EBECF0;
+    font-weight: 600;
+}
+
+.copy-icon {
+    cursor: pointer;
+    font-size: 12px;
+    color: #aaa;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.copy-icon:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.metamask-fox {
+    height: 14px;
+    width: auto;
+    margin-left: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.metamask-fox:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Price and Variation Row (below network badge, left-aligned) */
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.info-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.info-variation {
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.info-variation.negative {
+    color: #F05252 !important; /* Premium red */
+}
+
+.info-variation.positive {
+    color: #0E9F6E !important; /* Premium green */
+}
+
+/* Metrics List */
+.metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--row-gap);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: var(--box-padding); /* Retornado para var(--box-padding) para simetria perfeita no esquadro */
+    padding-top: var(--box-padding);
+    margin-bottom: 0;
+}
+
+.metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.metric-label {
+    color: #EBECF0;
+}
+
+.metric-value {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Footer area */
+.info-footer {
+    font-size: 11px;
+    color: #999999;
+    font-weight: 500;
+    text-align: right;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+.table-area {
+    width: 65%;
+    margin: 20px auto;
+}
+
+.dataTables_length {
+    display: none !important;
+}
+
+.dataTables_filter {
+    margin-bottom: 20px;
+    color: white !important;
+    font-weight: 700;
+    font-size: 0 !important; 
+}
+
+.dataTables_filter input {
+    width: 240px;
+    height: 34px;
+    margin-left: 10px;
+    padding: 6px 16px 6px 38px;
+    border: none !important;
+    border-radius: 50px !important;
+    outline: none;
+    background: #f2f2f2 !important;
+    color: #222 !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23222222'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 16px 16px !important;
+    transition: all 0.25s ease;
+}
+
+.dataTables_filter input:focus {
+    background-color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+}
+
+table#example {
+    width: 100% !important;
+    background: #3D3D3D;
+    border-radius: 12px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: none;
+}
+
+table#example th {
+    background: #2f2f2f;
+    color: white;
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    border-bottom: 2px solid #d8d8d8;
+}
+
+table#example td {
+    background: #3D3D3D;
+    color: white;
+    padding: 20px 18px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+table#example tr:nth-child(even) td {
+    background: #363636;
+}
+
+table#example tr:hover td {
+    background: #2a2a2a;
+}
+
+table#example a {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+table#example a:hover {
+    color: #6E46AE;
+}
+
+.dataTables_info {
+    margin-top: 18px;
+    color: #777 !important;
+    font-weight: 700;
+    padding-left: 14px !important;
+}
+
+.dataTables_paginate {
+    margin-top: 18px;
+    color: white !important;
+    font-weight: 700;
+}
+
+.dataTables_paginate .paginate_button {
+    color: white !important;
+    border: none !important;
+    background: transparent !important;
+    font-weight: 700;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    color: #6E46AE !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background: white !important;
+    color: #222 !important;
+    border-radius: 6px;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+@media (max-width: 1200px) {
+    .top-area,
+    .table-area {
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-area,
+    .table-area {
+        width: 95%;
+    }
+
+    .top-area h1 {
+        font-size: 2.2rem;
+    }
+
+    .dataTables_filter {
+        text-align: center;
+    }
+
+    .dataTables_filter input {
+        width: 80%;
+        margin-top: 8px;
+        margin-left: 0;
+    }
+
+    table#example th,
+    table#example td {
+        padding: 14px 10px;
+        font-size: 12px;
+    }
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    display: inline-block !important;
+    width: 240px !important;
+    height: 34px !important;
+    margin-left: 10px !important;
+    padding: 6px 16px 6px 38px !important;
+    border: none !important;
+    border-radius: 50px !important;
+    outline: none !important;
+    background-color: #f2f2f2 !important;
+    color: #222 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23222222'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 16px 16px !important;
+    transition: all 0.25s ease !important;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    background-image: none !important;
+}
+
+table.dataTable thead th.sorting::after,
+table.dataTable thead th.sorting_asc::after,
+table.dataTable thead th.sorting_desc::after {
+    content: "↕";
+    margin-left: 8px;
+    font-size: 11px;
+    color: #aaa;
+}
+
+table.dataTable thead th.sorting_asc::after {
+    content: "↑";
+    color: #8b8bff;
+}
+
+table.dataTable thead th.sorting_desc::after {
+    content: "↓";
+    color: #8b8bff;
+}
+
+table#example th {
+    position: relative !important;
+    white-space: nowrap !important;
+}
+
+/* Ticker column — pair icons */
+.ticker-cell {
+    white-space: nowrap;
+    text-align: center;
+}
+.ticker-icon {
+    width: 23px;
+    height: 23px;
+    vertical-align: middle;
+    border-radius: 50%;
+    object-fit: contain;
+    display: inline-block;
+}
+.ticker-text {
+    font-weight: 600;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+/* Exchange column — icon + name */
+.exchange-cell {
+    white-space: nowrap;
+}
+.exchange-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    border-radius: 50%;
+    object-fit: contain;
+    display: inline-block;
+    background: #fff;
+}
+.exchange-fallback {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: #fff;
+    color: #5A5A5A;
+    font-size: 9px;
+    font-weight: 800;
+}
