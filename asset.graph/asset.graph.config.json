@@ -1,0 +1,97 @@
+{
+    "canvas": {
+        "font": "Roboto",
+        "background_color": "#1e2730",
+        "grid_color": "#4a667a",
+        "text_color": "#cccccc",
+        "size": "large",
+        "font_size": "14"
+    },
+    "symbol": {
+        "line_color": "#10b981",
+        "line_thickness": "0.5"
+    },
+    "options": {
+        "fonts": [
+            "Montserrat",
+            "Courier New",
+            "Inter",
+            "Roboto",
+            "Outfit"
+        ],
+        "sizes": [
+            {
+                "value": "small",
+                "label": "Small (600px max)"
+            },
+            {
+                "value": "medium",
+                "label": "Medium (800px max)"
+            },
+            {
+                "value": "large",
+                "label": "Large (1000px max)"
+            },
+            {
+                "value": "responsive",
+                "label": "Responsive (100%)"
+            }
+        ],
+        "colors": [
+            {
+                "name": "Classic Dark",
+                "background": "#1e2730",
+                "grid": "#4a667a",
+                "text": "#cccccc"
+            },
+            {
+                "name": "Deep Space",
+                "background": "#0b0f19",
+                "grid": "#1f293d",
+                "text": "#9ca3af"
+            },
+            {
+                "name": "Midnight Blue",
+                "background": "#0d1117",
+                "grid": "#21262d",
+                "text": "#c9d1d9"
+            },
+            {
+                "name": "Modern Light",
+                "background": "#f8fafc",
+                "grid": "#cbd5e1",
+                "text": "#334155"
+            }
+        ],
+        "line_colors": [
+            {
+                "name": "Pink",
+                "value": "pink"
+            },
+            {
+                "name": "Neon Cyan",
+                "value": "#00d5bd"
+            },
+            {
+                "name": "Vibrant Red",
+                "value": "#fc327d"
+            },
+            {
+                "name": "Royal Blue",
+                "value": "#3b82f6"
+            },
+            {
+                "name": "Emerald Green",
+                "value": "#10b981"
+            }
+        ],
+        "font_sizes": [
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20"
+        ]
+    }
+}
