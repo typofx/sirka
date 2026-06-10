@@ -1,15 +1,15 @@
 {
     "canvas": {
-        "font": "Roboto",
-        "background_color": "#1e2730",
-        "grid_color": "#4a667a",
-        "text_color": "#cccccc",
-        "size": "large",
+        "font": "Courier New",
+        "background_color": "#0b0f19",
+        "grid_color": "#1f293d",
+        "text_color": "#9ca3af",
+        "size": "medium",
         "font_size": "14"
     },
     "symbol": {
-        "line_color": "#10b981",
-        "line_thickness": "0.5"
+        "line_color": "#8246be",
+        "line_thickness": "1"
     },
     "options": {
         "fonts": [

@@ -50,15 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     if (file_put_contents($config_path, json_encode($new_config, JSON_PRETTY_PRINT))) {
-        header("Location: asset.graph.config.php?saved=true");
+        header("Location: index.php");
         exit;
     } else {
         $message = "Error saving settings.";
     }
-}
-
-if (isset($_GET['saved']) && $_GET['saved'] === 'true') {
-    $message = "Settings applied!";
 }
 ?>
 

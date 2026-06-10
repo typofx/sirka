@@ -17,7 +17,7 @@ $line_color = isset($config['symbol']['line_color']) ? $config['symbol']['line_c
 $line_thickness = isset($config['symbol']['line_thickness']) ? $config['symbol']['line_thickness'] : '1';
 
 // URL of the JSON file
-$json_url = "https://www.plata.ie/plataforma/painel/token-historical-data/token_data.json";
+$json_url = "https://www.typofx.ie/plataforma/panel/token-historical-data/token_data.json";
 
 // Fetch data from JSON
 $json_data = file_get_contents($json_url);
@@ -85,7 +85,7 @@ while (true) {
 
 // Convert calendar days of first block to corresponding ratio of chart points
 $points_per_day = count($filtered_data) / ($num_months_temp * 30);
-$extra_points = $days_to_next * $points_per_day;
+$extra_points = 0; // Set to 0 to align grid perfectly with start of chart (Option 2)
 
 $num_points = count($filtered_data) + 1 + $extra_points;
 $graph_width = 100;
@@ -131,10 +131,9 @@ $months = [];
 // Iterating over months
 $months = [];
 for ($i = $num_months; $i >= 0; $i--) {
-    if ($i == $num_months || $i == 0) {
-        $current_month = date("d-M", strtotime("-$i month", $start_date));
-    } else {
-        $current_month = date("M", strtotime("-$i month", $start_date));
+    $current_month = date("M", strtotime("-$i month", $start_date));
+    if ($current_month === 'Jan') {
+        $current_month = date('Y');
     }
     $months[] = $current_month;
 }
@@ -150,13 +149,9 @@ $num_intervals = $num_months;
 // Calculate uniform spacing
 $uniform_x_step = $total_width / $num_intervals;
 
-// Add first line with extra spacing
-$grid_lines_vertical .= "<line x1='0' y1='0' x2='0' y2='$graph_height' class='vertical' />\n";
-$x = $extra_points * $x_step;
-$grid_lines_vertical .= "<line x1='$x' y1='0' x2='$x' y2='$graph_height' class='vertical' />\n";
-
-// Add remaining lines with uniform spacing
-for ($i = 1; $i <= $num_months; $i++) {
+// Add vertical grid lines — one per month boundary
+$grid_lines_vertical_text = "";
+for ($i = 0; $i <= $num_months; $i++) {
     $x = $extra_points * $x_step + $i * $uniform_x_step;
     $grid_lines_vertical .= "<line x1='$x' y1='0' x2='$x' y2='$graph_height' class='vertical' />\n";
 }
@@ -197,6 +192,7 @@ if ($oldest_price > 0) {
             --chart-font-size: <?php echo $font_size; ?>px;
             --chart-line-color: <?php echo $line_color; ?>;
             --chart-line-thickness: <?php echo $line_thickness; ?>px;
+            --chart-legend-width: <?php echo $font_size * 6.5; ?>px;
         }
     </style>
 </head>
@@ -214,16 +210,16 @@ if ($oldest_price > 0) {
             <div class="chart-svg">
                 <!-- Price legend -->
                 <div class="price-legend">
-                    <text class="legend-y max">$<?php echo number_format($max_price, 8); ?></text>
-                    <text class="legend-y min">$<?php echo number_format($min_price, 8); ?></text>
+                    <text class="legend-y max"><?php echo number_format($max_price, 8); ?></text>
+                    <text class="legend-y min"><?php echo number_format($min_price, 8); ?></text>
                 </div>
                 <!-- Dynamic chart adjustment -->
-                <svg class="chart-line" id="chart-1"
-                    viewBox="0 0 <?php echo $graph_width + 5 ?> <?php echo $graph_height + 5 ?>">
+                <svg class="chart-line" id="chart-1" style="overflow: visible;"
+                    viewBox="0 0 <?php echo $graph_width + 1 ?> <?php echo $graph_height + 5 ?>">
                     <defs>
-                        <clipPath id="clip" x="0" y="0" width="<?php echo $graph_width ?>"
-                            height="<?php echo $graph_height ?>">
-                            <rect id="clip-rect" x="-10" y="0" width="10" height="10" />
+                        <clipPath id="clip">
+                            <!-- Clip horizontally to chart width, but allow vertical overflow -->
+                            <rect id="clip-rect" x="0" y="-100" width="<?php echo $graph_width; ?>" height="<?php echo $graph_height + 200; ?>" />
                         </clipPath>
                     </defs>
 
@@ -232,46 +228,65 @@ if ($oldest_price > 0) {
                         <?php echo $grid_lines_vertical; ?>
                     </g>
 
+                    <!-- Date labels inside SVG: same coordinate system as vertical lines -->
+                    <g id="date-labels">
+                        <?php
+                        $label_y = $graph_height + 2.6;
+
+                        // Full month labels — $months[0] = oldest, $months[$num_months] = newest
+                        for ($i = 0; $i <= $num_months; $i++):
+                            $lx = $extra_points * $x_step + $i * $uniform_x_step;
+                            $month_label = $months[$i] ?? '';
+                            $anchor = 'middle';
+                            if ($i === 0) $anchor = 'start';
+                            if ($i === $num_months) $anchor = 'end';
+                        ?>
+                            <text
+                                x="<?php echo $lx; ?>"
+                                y="<?php echo $label_y; ?>"
+                                class="date-label-svg"
+                                text-anchor="<?php echo $anchor; ?>"
+                                dominant-baseline="hanging">
+                                <?php echo $month_label; ?>
+                            </text>
+                        <?php endfor; ?>
+                    </g>
+
                     <!-- Dynamic chart line based on settings -->
                     <path id="graph-1" d="<?php echo $path_d; ?>" stroke="var(--chart-line-color)" stroke-width="var(--chart-line-thickness)"
                         fill="transparent" stroke-dasharray="<?php echo $dasharray; ?>"
-                        stroke-dashoffset="<?php echo $dasharray; ?>" />
+                        stroke-dashoffset="<?php echo $dasharray; ?>" clip-path="url(#clip)" />
                 </svg>
 
                 <!-- Right legend -->
                 <div class="price-legend-right">
                     <?php
                   
-                    $price_steps = [
-                        $max_price * 1.2,                         // 1. HIGHER PRICE * 1.2
-                        $max_price,                               // 2. HIGHER PRICE
-                        ($max_price + $min_price) * 0.8,          // 3. (HIGHER PRICE + LOWER PRICE) * 0.8
-                        ($max_price + $min_price) * 0.6,          // 4. (HIGHER PRICE + LOWER PRICE) * 0.6
-                        ($max_price + $min_price) * 0.5,          // 5. (HIGHER PRICE + LOWER PRICE) * 0.5
-                        ($max_price + $min_price) * 0.4,          // 6. (HIGHER PRICE + LOWER PRICE) * 0.4
-                        ($max_price + $min_price) * 0.2,          // 7. (HIGHER PRICE + LOWER PRICE) * 0.2
-                        $min_price,                               // 8. LOWER PRICE
-                        $min_price * 0.8                          // 9. LOWER PRICE * 0.8
-                    ];
+                    $price_steps = [];
+                    for ($i = 0; $i < $num_lines; $i++) {
+                        $y = $i * $line_spacing;
+                        $price_val = $min_price + $price_range * ($graph_height + $y_offset - $y) / $graph_height;
+                        $price_steps[] = max(0, $price_val);
+                    }
 
                     for ($i = 0; $i < $num_lines; $i++):
                         $top_position = ($i / ($num_lines - 1)) * 100;
                         $price_step_value = isset($price_steps[$i]) ? $price_steps[$i] : 0;
+                        if ($i === 0) {
+                            $transform = 'translateY(calc(-50% + 0.5em))';
+                        } elseif ($i === $num_lines - 1) {
+                            $transform = 'translateY(calc(-50% - 0.5em))';
+                        } else {
+                            $transform = 'translateY(-50%)';
+                        }
                     ?>
-                        <h3 class="price-step" style="position: absolute; top: <?php echo $top_position; ?>%;">
-                            $<?php echo number_format($price_step_value, 8); ?>
+                        <h3 class="price-step" style="position: absolute; top: <?php echo $top_position; ?>%; transform: <?php echo $transform; ?>;">
+                            <?php echo number_format($price_step_value, 8); ?>
                         </h3>
                     <?php endfor; ?>
                 </div>
 
-                <!-- Date legend -->
-                <div class="time-legend">
-                    <?php foreach ($months as $month): ?>
-                        <h3 class="time-month" style="width: <?php echo 100 / count($months); ?>%; display: inline-block;">
-                            <?php echo $month; ?>
-                        </h3>
-                    <?php endforeach; ?>
-                </div>
+                <!-- Date legend (rendered inside SVG for exact alignment) -->
             </div>
         </div>
     </div>
