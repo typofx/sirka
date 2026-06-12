@@ -1,0 +1,747 @@
+/* ==========================================================================
+   1. LOCAL WEB FONTS DEFINITIONS
+   ========================================================================== */
+
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/montserrat-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/montserrat-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/montserrat-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/inter-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/inter-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('fonts/roboto-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('fonts/roboto-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('fonts/roboto-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/outfit-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/outfit-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/outfit-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+/* ==========================================================================
+   2. CONFIGURATION PANEL STYLE (TradingView Modal Settings Interface)
+   ========================================================================== */
+
+:root,
+.tv-modal-root {
+  --bg-modal: #ffffff;
+  --bg-sidebar: #f2f2f2;
+  --bg-hover: #eeeeee;
+  --border-color: #dddddd;
+  --text-main: #000000;
+  --text-muted: #666666;
+  --text-active: #000000;
+  --accent-blue: #6a4c93;
+  --accent-blue-hover: #5a3d82;
+  --bg-input: #ffffff;
+  --border-input: #dddddd;
+}
+
+.tv-config-body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #ffffff;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.tv-config-body * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* Modal Container */
+.tv-modal {
+  width: 620px;
+  height: 520px;
+  background-color: var(--bg-modal);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+#config-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Modal Header */
+.tv-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tv-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-active);
+}
+
+.tv-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+
+.tv-close:hover {
+  color: var(--text-active);
+}
+
+/* Modal Body */
+.tv-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Navigation */
+.tv-sidebar {
+  width: 175px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.tv-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.tv-tab-item svg {
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+  transition: fill 0.15s ease;
+}
+
+.tv-tab-item:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.tv-tab-item.active {
+  color: var(--accent-blue);
+  background-color: var(--bg-hover);
+  border-left-color: var(--accent-blue);
+}
+
+/* Content Area */
+.tv-content-container {
+  flex: 1;
+  padding: 24px 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--bg-modal);
+}
+
+.tv-tab-content {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tv-tab-content.active {
+  display: flex;
+}
+
+/* Sections and Titles */
+.tv-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+/* Form Row Layout */
+.tv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 32px;
+  gap: 8px;
+}
+
+.tv-label {
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.tv-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 210px;
+}
+
+/* Inputs and Selects styled like TradingView */
+.tv-select {
+  --select-gap: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: 4px;
+  color: var(--text-main);
+  padding: 0 calc(14px + var(--select-gap) * 2) 0 var(--select-gap);
+  font-size: 13px;
+  height: 28px;
+  line-height: 26px;
+  outline: none;
+  cursor: pointer;
+  min-width: 160px;
+  width: auto;
+  max-width: 174px;
+  transition: border-color 0.15s ease;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4%206l4%204%204-4%22%20stroke%3D%22%235f6368%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--select-gap) center;
+  background-size: 14px 14px;
+}
+
+.tv-select:last-child {
+  max-width: 210px;
+}
+
+.tv-select:focus {
+  border-color: var(--accent-blue);
+}
+
+/* Rounded Color Box */
+.tv-color-box {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid var(--border-input);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.tv-color-box:hover {
+  border-color: var(--text-muted);
+}
+
+.tv-color-box input[type="color"] {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Range/Thickness Slider styling */
+.tv-range {
+  accent-color: var(--accent-blue);
+  height: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 120px;
+  flex: 0 0 120px;
+}
+
+.tv-range-val {
+  font-size: 12px;
+  color: var(--text-muted);
+  width: 45px;
+  min-width: 45px;
+  max-width: 45px;
+  flex: 0 0 45px;
+  text-align: left;
+  font-weight: 500;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Modal Footer */
+.tv-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-sidebar);
+}
+
+.tv-footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.tv-footer-right {
+  display: flex;
+  gap: 8px;
+}
+
+/* Custom buttons */
+.tv-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.tv-btn-cancel {
+  background-color: transparent;
+  border: 1px solid var(--border-input);
+  color: var(--text-main);
+}
+
+.tv-btn-cancel:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--text-muted);
+}
+
+.tv-btn-ok {
+  background-color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  color: white;
+}
+
+.tv-btn-ok:hover {
+  background-color: var(--accent-blue-hover);
+  border-color: var(--accent-blue-hover);
+}
+
+/* Notifications */
+.tv-toast {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #10b981;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 1000;
+  animation: toastIn 0.3s ease forwards;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    top: 10px;
+  }
+
+  to {
+    opacity: 1;
+    top: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   3. CHART VISUAL STYLE (index.php Chart Elements)
+   ========================================================================== */
+
+:root {
+  --chart-font-family: 'Montserrat', sans-serif;
+  --chart-bg-color: #1e2730;
+  --chart-grid-color: #4a667a;
+  --chart-text-color: #cccccc;
+  --chart-line-color: pink;
+  --chart-line-thickness: 1px;
+  --chart-legend-width: 66px;
+}
+
+#grid {
+  -moz-transform: translate(1px, 0px);
+  -ms-transform: translate(1px, 0px);
+  -webkit-transform: translate(1px, 0px);
+  transform: translate(0px, 0px);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.legend-y {
+  position: absolute;
+  font-size: 14px;
+  color: var(--chart-text-color);
+}
+
+.legend-y.max {
+  top: 12.5%;
+  transform: translateY(-100%);
+}
+
+.price-legend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 93.3%;
+  pointer-events: none;
+}
+
+.legend-y.min {
+  top: 87.5%;
+  transform: translateY(0);
+}
+
+.price-legend-right {
+  position: absolute;
+  top: 0;
+  right: calc(-1 * var(--chart-legend-width));
+  width: var(--chart-legend-width);
+  height: 93.333333%;
+  font-size: var(--chart-font-size, 11px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 3px;
+  white-space: nowrap;
+
+}
+
+.price-step {
+  font-size: 0.9em;
+  color: var(--chart-text-color);
+  text-align: left;
+  transform: translateY(calc(-50% + 0.15em));
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.time-legend {
+  display: none;
+}
+
+.date-label-svg {
+  font-size: 1px;
+  fill: var(--chart-text-color);
+  font-family: var(--chart-font-family);
+}
+
+.time-month {
+  position: absolute;
+  font-size: 0.7em;
+  letter-spacing: -0.3px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  width: max-content;
+  margin: 0;
+  line-height: 1;
+}
+
+.percentage-change {
+  position: relative;
+  font-size: 14px;
+  margin-left: 15px;
+  line-height: 1;
+}
+
+.percentage-change.positive {
+  color: #00d5bd;
+}
+
+.percentage-change.negative {
+  color: #fc327d;
+}
+
+#graph-1 {
+  stroke: var(--chart-line-color, pink);
+  stroke-width: var(--chart-line-thickness, 1px);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -moz-animation: lineani 1.3s linear forwards;
+  -webkit-animation: lineani 1.3s linear forwards;
+  animation: lineani 1.3s linear forwards;
+}
+
+@-moz-keyframes lineani {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes lineani {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes lineani {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.underlay {
+  stroke-width: 5;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #24303a;
+}
+
+.charts-container {
+  margin: 0;
+  width: 100%;
+  max-width: 1024px;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.charts-container.size-small {
+  max-width: 600px;
+}
+.charts-container.size-small .chart {
+  padding-left: 23px;
+}
+
+.charts-container.size-medium {
+  max-width: 800px;
+}
+.charts-container.size-medium .chart {
+  padding-left: 27.5px;
+}
+
+.charts-container.size-large {
+  max-width: 1000px;
+}
+.charts-container.size-large .chart {
+  padding-left: 31.5px;
+}
+
+.charts-container.size-responsive {
+  max-width: 100%;
+}
+.charts-container.size-responsive .chart {
+  padding-left: calc(9.3px + 2.37%);
+}
+
+.chart {
+  width: 100%;
+  font-family: var(--chart-font-family);
+  color: var(--chart-text-color);
+  text-align: left;
+  position: relative;
+  height: auto;
+  background-color: var(--chart-bg-color);
+  display: inline-block;
+  margin: 0px;
+  padding: 3px var(--chart-legend-width) 11px 0px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1;
+}
+
+.chart-svg {
+  position: relative;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.chart-line {
+  display: block;
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+
+.chart-values {
+  text-align: right;
+  font-size: 18px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+}
+
+.total-gain {
+  color: white;
+  font-size: 48px;
+}
+
+.h-value {
+  -moz-transition: ease-in-out 700ms;
+  -o-transition: ease-in-out 700ms;
+  -webkit-transition: ease-in-out 700ms;
+  transition: ease-in-out 700ms;
+}
+
+.horizontal,
+.vertical {
+  stroke-width: 0.1;
+  stroke: var(--chart-grid-color);
+}
+
+/* CLEARFIX HELPER */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
