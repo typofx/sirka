@@ -238,7 +238,6 @@ if ($oldest_price > 0) {
                             $lx = $extra_points * $x_step + $i * $uniform_x_step;
                             $month_label = $months[$i] ?? '';
                             $anchor = 'middle';
-                            if ($i === 0) $anchor = 'start';
                             if ($i === $num_months) $anchor = 'end';
                         ?>
                             <text
@@ -272,15 +271,8 @@ if ($oldest_price > 0) {
                     for ($i = 0; $i < $num_lines; $i++):
                         $top_position = ($i / ($num_lines - 1)) * 100;
                         $price_step_value = isset($price_steps[$i]) ? $price_steps[$i] : 0;
-                        if ($i === 0) {
-                            $transform = 'translateY(calc(-50% + 0.5em))';
-                        } elseif ($i === $num_lines - 1) {
-                            $transform = 'translateY(calc(-50% - 0.5em))';
-                        } else {
-                            $transform = 'translateY(-50%)';
-                        }
                     ?>
-                        <h3 class="price-step" style="position: absolute; top: <?php echo $top_position; ?>%; transform: <?php echo $transform; ?>;">
+                        <h3 class="price-step" style="position: absolute; top: <?php echo $top_position; ?>%;">
                             <?php echo number_format($price_step_value, 8); ?>
                         </h3>
                     <?php endfor; ?>
