@@ -101,39 +101,26 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == '1') {
 ======================================================
 </pre>
 
-<div class="generator-container">
-    <form id="gen-form" method="GET" action="">
-        <input type="hidden" name="submitted" value="1">
-        <input type="hidden" name="generate" value="1">
+<form id="gen-form" method="GET" action="">
+    <input type="hidden" name="submitted" value="1">
+    <input type="hidden" name="generate" value="1">
 
-        <pre>
-<div class="password-box">
-[ <input type="text" id="password-display" class="password-input" readonly placeholder="Click GEN" value="<?php echo htmlspecialchars($generatedPassword, ENT_QUOTES, 'UTF-8'); ?>" size="36"> ] <button type="button" id="generate-btn" class="btn-generate" onclick="generateNewPassword()">GEN</button> <button type="button" id="copy-btn" class="btn-copy" onclick="copyPassword()">COPY</button>
-</div>
-<span id="copy-status" class="status-msg"></span>
+    <pre>
+[ <input type="text" id="password-display" readonly placeholder="Click GEN" value="<?php echo htmlspecialchars($generatedPassword, ENT_QUOTES, 'UTF-8'); ?>" size="36"> ] <button type="button" id="generate-btn" onclick="generateNewPassword()">GEN</button> <button type="button" id="copy-btn" onclick="copyPassword()">COPY</button>
+<span id="copy-status"></span>
 
 ------------------------------------------------------
 SETTINGS:
 ------------------------------------------------------
-<div class="settings-panel">
-<div class="length-control">
-<label for="length-range">Password Length: <strong id="length-val"><?php echo $length; ?></strong></label>
-<br>
-[8] <input type="range" id="length-range" class="length-slider" name="length" min="8" max="64" value="<?php echo $length; ?>" oninput="updateLength(this.value)"> [64]
-</div>
+Password Length: <strong id="length-val"><?php echo $length; ?></strong>
+[8] <input type="range" id="length-range" name="length" min="8" max="64" value="<?php echo $length; ?>" oninput="updateLength(this.value)"> [64]
 
-<br>
-<div class="character-options">
 Characters Used:
-<br>
-<label><input type="checkbox" name="uppercase" value="1" id="chk-upper" class="opt-checkbox" <?php echo $useUpper ? 'checked' : ''; ?>> [A-Z] Uppercase</label>
-<label><input type="checkbox" name="lowercase" value="1" id="chk-lower" class="opt-checkbox" <?php echo $useLower ? 'checked' : ''; ?>> [a-z] Lowercase</label>
-<label><input type="checkbox" name="numbers" value="1" id="chk-numbers" class="opt-checkbox" <?php echo $useNumbers ? 'checked' : ''; ?>> [0-9] Numbers</label>
-</div>
-</div>
-        </pre>
-    </form>
-</div>
+<label><input type="checkbox" name="uppercase" value="1" id="chk-upper" <?php echo $useUpper ? 'checked' : ''; ?>> [A-Z] Uppercase</label>
+<label><input type="checkbox" name="lowercase" value="1" id="chk-lower" <?php echo $useLower ? 'checked' : ''; ?>> [a-z] Lowercase</label>
+<label><input type="checkbox" name="numbers" value="1" id="chk-numbers" <?php echo $useNumbers ? 'checked' : ''; ?>> [0-9] Numbers</label>
+    </pre>
+</form>
 
 <script>
 function copyPassword() {
