@@ -1,0 +1,35 @@
+body { 
+    font-family: monospace; 
+    background: #0D0D0D; 
+    color: #fff; 
+    padding: 20px; 
+}
+
+.log-box { 
+    background: #1a1a1a; 
+    padding: 15px; 
+    border: 1px solid #333; 
+    border-radius: 8px; 
+    height: 300px; 
+    overflow-y: auto; 
+}
+
+.log-item { 
+    margin-bottom: 5px; 
+    color: #10b981; 
+}
+
+.log-item.error { 
+    color: #ef4444; 
+}
+
+/* Hidden area where the graph will be rendered for snapshot */
+#render-sandbox {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 100px; /* Same width as the old iframe */
+    height: 50px; /* Same height as the old iframe */
+    overflow: hidden; /* Crop any overflow, just like scrolling="no" in iframe */
+    background: transparent;
+}
