@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.typofx.ie/.scr/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.typofx.ie/.scr/all.min.css">
+  <link rel="stylesheet" href="ajax.json.style.css">
+  <script src="https://www.typofx.ie/.scr/bootstrap.bundle.min.js"></script>
+  <script src="https://www.typofx.ie/.scr/jquery-3.7.1.min.js"></script>
+  <script src="ajax.json.script.js"></script>
+  <title>Ajax Price Update Example</title>
+</head>
+
+<body>
+
+<div class="container d-flex flex-column align-items-center py-4">
+    <section class="top-area">
+        <h1>Ajax Price Update Example</h1>
+
+        <!-- Info Box Component -->
+        <div class="info-box">
+            <!-- Header: Logo, Name, Address -->
+            <div class="info-header">
+                <img class="info-logo" src="https://www.plata.ie/images/platasmall.svg" alt="Plata">
+                <div class="token-details">
+                    <div class="info-title">
+                        <span class="token-name">Plata Token</span>
+                        <span class="token-symbol">PLT</span>
+                    </div>
+                    <div class="network-row">
+                        <span class="network-badge">
+                            <i class="fa-solid fa-link network-icon"></i>
+                            Polygon: <span class="token-address" id="contractAddress">0xC29...616341</span>
+                            <i class="fa-regular fa-copy copy-icon" id="copyAddressBtn" data-address="0xC29882a1e969018446A3102434DE27B75c616341" title="Copy Address"></i>
+                            <img class="metamask-fox" src="./.img/MetaMask-icon.svg" alt="MetaMask">
+                        </span>
+                    </div>
+                    <div class="price-row">
+                        <span class="info-price" id="info-price">-- USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Metrics list -->
+            <div class="metrics-list">
+                <div class="metric-item">
+                    <span class="metric-label">Market Capitalization :</span>
+                    <span class="metric-value" id="info-market-cap">-- USD</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Last Updated :</span>
+                    <span class="metric-value" id="info-last-updated">--</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Status :</span>
+                    <span class="metric-value"><i class="fa-solid fa-arrows-rotate status-spin"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+
+</html>

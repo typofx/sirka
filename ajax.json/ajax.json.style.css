@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0 0 40px;
+    background: #aaa !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#spinner-div {
+  position: fixed;
+  inset: 0;
+  display: none;
+  background-color: rgba(216, 216, 216, 0.8);
+  z-index: 9999;
+}
+
+#spinner-div.active {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, #757370 94%, #0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, #757370);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+
+@keyframes l13 {
+  100% { transform: rotate(1turn); }
+}
+
+.top-area {
+    width: 65%;
+    margin: 25px auto 20px;
+    text-align: center;
+}
+
+.top-area h1 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.info-box {
+    --box-padding: 20px;
+    --row-gap: 10px;
+    --logo-size: 92px;
+
+    background: #3D3D3D !important;
+    border: 1px solid #5A5A5A !important;
+    border-radius: 12px !important;
+    padding: var(--box-padding) !important;
+    text-align: left !important;
+    max-width: 500px;
+    margin: 25px auto 0;
+    font-family: 'Montserrat', sans-serif !important;
+    color: white !important;
+    line-height: 1.2 !important;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: var(--box-padding);
+    margin-bottom: 0;
+}
+
+.info-logo {
+    width: var(--logo-size);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.token-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--row-gap);
+    flex: 1;
+}
+
+.info-title {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.token-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.token-symbol {
+    font-size: 20px;
+    font-weight: 700;
+    color: #999999;
+}
+
+.network-row {
+    display: flex;
+    align-items: center;
+}
+
+.network-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #CCCCCC;
+}
+
+.network-icon {
+    color: #8247E5;
+    font-size: 10px;
+}
+
+.token-address {
+    color: #EBECF0;
+    font-weight: 600;
+}
+
+.copy-icon {
+    cursor: pointer;
+    font-size: 12px;
+    color: #aaa;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.copy-icon:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.metamask-fox {
+    height: 14px;
+    width: auto;
+    margin-left: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.metamask-fox:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.info-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.info-variation {
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.info-variation.negative {
+    color: #F05252 !important;
+}
+
+.info-variation.positive {
+    color: #0E9F6E !important;
+}
+
+.metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--row-gap);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: var(--box-padding);
+    padding-top: var(--box-padding);
+    margin-bottom: 0;
+}
+
+.metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.metric-label {
+    color: #EBECF0;
+}
+
+.metric-value {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.info-footer {
+    font-size: 11px;
+    color: #999999;
+    font-weight: 500;
+    text-align: right;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+.status-spin {
+    color: #CCCCCC;
+    font-size: 13px;
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
