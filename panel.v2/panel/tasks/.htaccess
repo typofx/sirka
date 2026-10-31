@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Security headers
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# Enable extensionless scripts: loading /foo will map to /foo.php internally
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
