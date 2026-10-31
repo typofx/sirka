@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Ensure we don't loop if index.php is requested directly
+RewriteCond %{ENV:REDIRECT_STATUS} 200
+RewriteRule ^ - [L]
+
+# Don't route real files (css, js, images, etc.)
+RewriteCond %{REQUEST_FILENAME} !-f
+# Don't route real directories
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything else to index.php
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]

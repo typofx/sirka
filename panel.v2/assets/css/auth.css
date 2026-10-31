@@ -1,0 +1,44 @@
+/* Auth Context Styles */
+.auth-container {
+    text-align: center;
+}
+
+.auth-title {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.auth-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 350px;
+    margin: 30px auto 0;
+}
+
+.btn-auth-action {
+    text-decoration: none;
+    padding: 15px 20px;
+    background: #0b0e11;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.btn-auth-action:hover {
+    background: #1a1f24;
+}
+
+.sign-out-link {
+    margin-top: 20px;
+    color: #888;
+    text-decoration: underline;
+    font-size: 0.95rem;
+}

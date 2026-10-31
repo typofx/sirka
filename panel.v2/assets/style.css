@@ -1,0 +1,873 @@
+:root {
+    --primary: #ffffff;
+    --primary-hover: #dddddd;
+    --bg: #1a1a1a;
+    --card: #2a2a2a;
+    --border: #444;
+    --text: #ffffff;
+    --text-dim: #d0d0d0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Reset form styles */
+form {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input[type="hidden"] {
+    display: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body {
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    padding: 20px;
+}
+
+/* Glass Card Layout */
+.glass-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 35px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.glass-card.wide {
+    max-width: 900px;
+}
+
+.brand {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand h1 {
+    font-size: 1.5rem;
+    color: var(--text);
+}
+
+.brand p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-top: 0.5rem;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--text);
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #666;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    accent-color: var(--primary);
+    margin-top: 3px;
+}
+
+.checkbox-group a {
+    color: #66b3ff;
+    text-decoration: none;
+}
+
+.btn-signup,
+.w-100-btn,
+input[type="submit"] {
+    width: 100%;
+    padding: 0.7rem;
+    background: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-weight: normal;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button {
+    /* Default button style (auto width) */
+    padding: 0.7rem;
+    background: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-weight: normal;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Specific Toggle Button Implementation - Premium Modern Design */
+.toggle-button {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-right: 15px;
+    cursor: pointer;
+    vertical-align: middle;
+    outline: none !important;
+    transition: transform 0.2s ease;
+}
+
+.toggle-button:hover {
+    transform: scale(1.05);
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.toggle-button[data-active="1"] .toggle-slider {
+    background-color: rgba(76, 175, 80, 0.6);
+    border-color: rgba(76, 175, 80, 0.4);
+    box-shadow: none;
+}
+
+.toggle-button[data-active="1"] .toggle-slider:before {
+    transform: translateX(22px);
+    background-color: #fff;
+}
+
+/* Manage Button Style - Premium Dark Aesthetic */
+.btn-manage {
+    padding: 8px 20px; 
+    background: rgba(255, 255, 255, 0.05); 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 6px; 
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-manage:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 12px;
+    display: inline-block;
+}
+
+.badge-on {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.badge-off {
+    background: rgba(255, 255, 255, 0.05);
+    color: #888;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-signup:hover:not(:disabled),
+button:hover,
+input[type="submit"]:hover {
+    background: #444;
+}
+
+.btn-signup:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Table Styles - Premium Glass Theme */
+.user-table-container {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    padding: 2px;
+}
+
+table.dataTable,
+table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    font-size: 0.85rem;
+    margin: 20px 0 !important;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+th {
+    text-align: left;
+    padding: 1rem !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+td {
+    padding: 0.85rem 1rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.9) !important;
+    background: transparent !important;
+}
+
+tr {
+    background: transparent !important;
+    transition: background 0.2s ease;
+}
+
+tr:last-child td {
+    border-bottom: none !important;
+}
+
+tr:hover,
+tr.hover,
+table.dataTable.display tbody tr:hover,
+table.dataTable.display tbody tr.odd:hover,
+table.dataTable.display tbody tr.even:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Fix DataTables specific sorting column backgrounds */
+table.dataTable.display tbody tr.odd>.sorting_1, 
+table.dataTable.display tbody tr.even>.sorting_1,
+table.dataTable.order-column.stripe tbody tr.odd>.sorting_1,
+table.dataTable.order-column.stripe tbody tr.even>.sorting_1,
+table.dataTable.display tbody tr>.sorting_1 {
+    background: rgba(255, 255, 255, 0.02) !important;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.01) !important;
+}
+
+table.dataTable.display tbody tr:hover>.sorting_1 {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Extreme Fix for #example table white backgrounds */
+#example, 
+#example th, 
+#example td, 
+#example thead, 
+#example tbody, 
+#example tr,
+#example.dataTable tbody tr,
+#example.dataTable.display tbody tr.odd,
+#example.dataTable.display tbody tr.even {
+    background-color: transparent !important;
+}
+
+#example .sorting_1, 
+#example .sorting_2, 
+#example .sorting_3,
+#example.dataTable.display tbody tr.odd>.sorting_1,
+#example.dataTable.display tbody tr.even>.sorting_1 {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+#example tr:hover,
+#example tr:hover td,
+#example tr:hover .sorting_1 {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Manage/Register Specifics */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Utilities */
+.action-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-icons a {
+    color: #66b3ff;
+}
+
+.action-icons .fa-trash {
+    color: red;
+}
+
+.verified-icon {
+    color: green;
+}
+
+.not-verified-icon {
+    color: red;
+}
+
+.error-message {
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: green;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+/* Explicitly hide DataTables default borders that might persist */
+table.dataTable.no-footer {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+table.dataTable thead th, 
+table.dataTable thead td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#user-list_wrapper {
+    margin-top: 1.5rem;
+}
+
+/* DataTables Custom Controls Styling */
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    margin-left: 5px !important;
+    padding: 5px 12px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #fff !important;
+}
+
+/* Delete Button Specific Style */
+.btn-delete {
+    background: rgba(244, 67, 54, 0.1) !important;
+    color: #ff5252 !important;
+    border: 1px solid rgba(244, 67, 54, 0.2) !important;
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+.btn-delete:hover {
+    background: rgba(244, 67, 54, 0.2) !important;
+    border-color: rgba(244, 67, 54, 0.4) !important;
+    transform: scale(1.05);
+}
+
+a {
+    color: #66b3ff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #88c9ff;
+    text-decoration: none;
+}
+
+/* --- Captcha Page Specific Styles --- */
+.captcha-theme {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.captcha-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+}
+
+.captcha-container .brand-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.captcha-container .section-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.captcha-container .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #d0d0d0;
+}
+
+.captcha-container .captcha-box {
+    background: #2a2a2a;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.captcha-container .btn-submit {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+}
+
+.captcha-container .btn-submit:hover {
+    background: #333;
+}
+
+.captcha-container .error-msg {
+    color: #ff4444;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.captcha-theme .footer-info {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #a0a0a0;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    right: 0;
+}
+
+/* --- Security 2FA Flex List --- */
+.security-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+
+.security-item {
+    display: flex;
+    align-items: center; /* Changed from flex-start for better vertical centering */
+    padding: 1.8rem 0; /* Increased padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Softer border */
+}
+
+.security-item:last-child {
+    border-bottom: none;
+}
+
+.sec-icon {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.sec-info {
+    flex: 1;
+}
+
+.sec-info h3 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.sec-info p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+
+.sec-status {
+    width: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--primary);
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.sec-status .status-on i {
+    color: green;
+    margin-right: 5px;
+}
+
+.sec-action button {
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* --- Toggles and Greyout --- */
+.disabled-item {
+    opacity: 0.4;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+
+/* CSP Utility Classes */
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
+.w-100 { width: 100%; }
+.m-0 { margin: 0; }
+.mb-1 { margin-bottom: 1rem; }
+.mt-1-5 { margin-top: 1.5rem; }
+.gap-1 { gap: 1rem; }
+.flex-1 { flex: 1; }
+.no-decoration { text-decoration: none; }
+.btn-secondary { background: #e0e0e0; color: #333; border: none; }
+
+/* Security Setup Screens Styles - Premium Dark */
+.setup-card {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.setup-icon-box {
+    width: 70px;
+    height: 70px;
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 24px;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.15);
+}
+
+.setup-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.setup-desc {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.setup-input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.setup-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 600;
+}
+
+.setup-field {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    padding: 12px 15px !important;
+    border-radius: 10px !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+    text-align: center;
+}
+
+.setup-field:focus {
+    border-color: #4CAF50 !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+    outline: none;
+}
+
+.btn-setup-confirm {
+    width: 100%;
+    padding: 14px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-setup-confirm:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.btn-setup-cancel {
+    display: inline-block;
+    margin-top: 20px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.btn-setup-cancel:hover {
+    color: #fff;
+}
