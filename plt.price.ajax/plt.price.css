@@ -1,0 +1,92 @@
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+    --font: "Montserrat", sans-serif;
+    --text-color: black;
+    --gray-light: #EBECF0;
+}
+
+/* ============================================
+   CURRENCY DISPLAY
+   ============================================ */
+.currency-display {
+    font-weight: bold;
+    color: #444;
+}
+
+/* ============================================
+   LAYOUT & COMPONENTS
+   ============================================ */
+
+/* Table layout */
+.table-crypto-price {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/* Column widths */
+.th-side { width: 5%; }
+.th-token-icon { width: 10%; }
+.th-crypto-name { width: 40%; padding-left: 5px; }
+.th-crypto-price { width: 40%; padding-right: 5px; }
+
+/* Header section */
+.currency-header {
+    font-size: 12px;
+}
+
+.padtop {
+    padding-top: 15px;
+}
+
+/* Button styling */
+.gray-button {
+    padding: 6px 12px;
+    background-color: var(--gray-light);
+    border: none;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 13px;
+    font-family: var(--font);
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+/* Alignment utilities */
+.center { text-align: center; }
+.right { text-align: right; }
+.left { text-align: left; }
+
+/* Crypto name */
+.a-crypto-name {
+    font-family: var(--font);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+/* Crypto symbol */
+.a-crypto-symbol {
+    font-family: var(--font);
+    font-size: 12px;
+    text-decoration: none;
+    color: gray;
+}
+
+/* ============================================
+   PRICE & MARKET CAP TYPOGRAPHY
+   ============================================ */
+
+.price,
+.marketcap {
+    font-family: var(--font);
+    font-size: 13px;
+    color: var(--text-color);
+}
