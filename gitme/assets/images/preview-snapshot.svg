@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0d0e"/>
+      <stop offset="100%" stop-color="#0e1117"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#12151a"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Helvetica, Arial, sans-serif; }
+    .font-mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="620" fill="url(#bgGrad)"/>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <rect x="0" y="0" width="1000" height="46" fill="#0e1014"/>
+  <line x1="0" y1="46" x2="1000" y2="46" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Hamburger Menu Icon -->
+  <line x1="18" y1="18" x2="34" y2="18" stroke="#8b949e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="18" y1="23" x2="34" y2="23" stroke="#8b949e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="18" y1="28" x2="34" y2="28" stroke="#8b949e" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- GitBook Brand / Plata Glyph -->
+  <rect x="46" y="13" width="20" height="20" rx="5" fill="url(#purpleGlow)"/>
+  <path d="M52 18h8v2h-8zm0 4h6v2h-6zm0 4h8v2h-8z" fill="#ffffff"/>
+
+  <!-- Site Title -->
+  <text x="76" y="27" fill="#f0f6fc" font-size="13" font-weight="600" class="font-sans">$PLT Token for ACTM (Litepaper)</text>
+
+  <!-- Search Bar -->
+  <rect x="736" y="8" width="194" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <!-- Search Icon -->
+  <circle cx="752" cy="22" r="4.5" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="755.5" y1="25.5" x2="760" y2="30" stroke="#8b949e" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="768" y="27" fill="#8b949e" font-size="12" class="font-sans">Search...</text>
+  <!-- Search Shortcut Keycaps -->
+  <rect x="874" y="13" width="26" height="20" rx="3" fill="#21262d" stroke="#30363d" stroke-width="0.8"/>
+  <text x="880" y="27" fill="#8b949e" font-size="10" font-weight="600" class="font-sans">Ctrl</text>
+  <rect x="904" y="13" width="18" height="20" rx="3" fill="#21262d" stroke="#30363d" stroke-width="0.8"/>
+  <text x="909" y="27" fill="#8b949e" font-size="10" font-weight="600" class="font-sans">K</text>
+
+  <!-- GitHub Link Icon Button -->
+  <rect x="944" y="9" width="30" height="28" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <path d="M959 15c-4.42 0-8 3.58-8 8 0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 00967 23c0-4.42-3.58-8-8-8z" fill="#8b949e"/>
+
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <rect x="0" y="46" width="220" height="574" fill="#0e1014"/>
+  <line x1="220" y1="46" x2="220" y2="620" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Group: Getting Started -->
+  <text x="18" y="74" fill="#6e7681" font-size="10" font-weight="700" letter-spacing="0.8" class="font-sans">GETTING STARTED</text>
+
+  <!-- Active Item: $PLT Plata Token -->
+  <rect x="10" y="84" width="200" height="32" rx="6" fill="#8b5cf6" fill-opacity="0.14"/>
+  <rect x="10" y="88" width="3" height="24" rx="1.5" fill="#8b5cf6"/>
+  <text x="24" y="105" fill="#f0f6fc" font-size="12" font-weight="600" class="font-sans">$PLT Plata Token</text>
+
+  <!-- Item: Table of Contents -->
+  <text x="24" y="136" fill="#8b949e" font-size="12" class="font-sans">Table of Contents</text>
+
+  <!-- Group: Protocol & Information -->
+  <text x="18" y="174" fill="#6e7681" font-size="10" font-weight="700" letter-spacing="0.8" class="font-sans">PROTOCOL</text>
+
+  <!-- Item: Token Base Information -->
+  <text x="24" y="200" fill="#8b949e" font-size="12" class="font-sans">Token Base Information</text>
+  <path d="M196 195 l4 4 l-4 4" fill="none" stroke="#6e7681" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Item: The Use Case -->
+  <text x="24" y="230" fill="#8b949e" font-size="12" class="font-sans">The Use Case (ACTM)</text>
+
+  <!-- Item: Smart Contracts -->
+  <text x="24" y="260" fill="#8b949e" font-size="12" class="font-sans">Smart Contracts</text>
+  <path d="M196 255 l4 4 l-4 4" fill="none" stroke="#6e7681" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Item: Listing -->
+  <text x="24" y="290" fill="#8b949e" font-size="12" class="font-sans">Listing &amp; Exchanges</text>
+  <path d="M196 285 l4 4 l-4 4" fill="none" stroke="#6e7681" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Group: Governance & Roadmap -->
+  <text x="18" y="328" fill="#6e7681" font-size="10" font-weight="700" letter-spacing="0.8" class="font-sans">GOVERNANCE &amp; ROADMAP</text>
+
+  <!-- Item: The Roadmap -->
+  <text x="24" y="354" fill="#8b949e" font-size="12" class="font-sans">The Roadmap</text>
+  <path d="M196 349 l4 4 l-4 4" fill="none" stroke="#6e7681" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Item: A Plan, Starter Version -->
+  <text x="24" y="384" fill="#8b949e" font-size="12" class="font-sans">A Plan, Starter Version</text>
+  <path d="M196 379 l4 4 l-4 4" fill="none" stroke="#6e7681" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Item: Meet The Team -->
+  <text x="24" y="414" fill="#8b949e" font-size="12" class="font-sans">Meet The Team</text>
+  <path d="M196 409 l4 4 l-4 4" fill="none" stroke="#6e7681" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Item: PLATAFORMA -->
+  <text x="24" y="444" fill="#8b949e" font-size="12" class="font-sans">PLATAFORMA Ecosystem</text>
+
+  <!-- ================= MAIN DOCUMENTATION AREA ================= -->
+  <!-- Breadcrumb Navigation -->
+  <text x="250" y="74" fill="#6e7681" font-size="11" class="font-sans">
+    <tspan fill="#8b949e">Docs</tspan>
+    <tspan fill="#6e7681">  /  </tspan>
+    <tspan fill="#8b949e">Getting Started</tspan>
+    <tspan fill="#6e7681">  /  </tspan>
+    <tspan fill="#f0f6fc" font-weight="500">$PLT Plata Token</tspan>
+  </text>
+
+  <!-- Hero Title -->
+  <text x="250" y="108" fill="#f0f6fc" font-size="24" font-weight="700" class="font-sans">$PLT Token for ACTM (Litepaper)</text>
+
+  <!-- Copy Button Badge -->
+  <rect x="686" y="90" width="58" height="24" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="693" y="96" width="9" height="10" rx="1.5" fill="none" stroke="#8b949e" stroke-width="1.2"/>
+  <path d="M696 94h6a1 1 0 0 1 1 1v7" fill="none" stroke="#8b949e" stroke-width="1"/>
+  <text x="708" y="106" fill="#8b949e" font-size="11" font-weight="500" class="font-sans">Copy</text>
+
+  <!-- Subtitle -->
+  <text x="250" y="132" fill="#8b949e" font-size="13" class="font-sans">for ACTM Automated Crypto Teller Machine Project</text>
+
+  <!-- Subtle Horizontal Divider -->
+  <line x1="250" y1="147" x2="960" y2="147" stroke="#21262d" stroke-width="1"/>
+
+  <!-- ================= TOKEN SUMMARY CARDS (METRICS GRID) ================= -->
+  <!-- Card 1: Ticker -->
+  <rect x="250" y="162" width="224" height="72" rx="8" fill="url(#cardGrad)" stroke="#21262d" stroke-width="1"/>
+  <text x="268" y="184" fill="#8b949e" font-size="10" font-weight="700" letter-spacing="0.6" class="font-sans">TICKER SYMBOL</text>
+  <text x="268" y="214" fill="#a78bfa" font-size="22" font-weight="700" class="font-sans">$PLT</text>
+  <rect x="408" y="174" width="52" height="20" rx="10" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-width="0.8"/>
+  <text x="434" y="188" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600" class="font-sans">Polygon</text>
+
+  <!-- Card 2: Decimals -->
+  <rect x="493" y="162" width="224" height="72" rx="8" fill="url(#cardGrad)" stroke="#21262d" stroke-width="1"/>
+  <text x="511" y="184" fill="#8b949e" font-size="10" font-weight="700" letter-spacing="0.6" class="font-sans">TOKEN DECIMALS</text>
+  <text x="511" y="214" fill="#58a6ff" font-size="22" font-weight="700" class="font-sans">18</text>
+  <rect x="647" y="174" width="56" height="20" rx="10" fill="#388bfd" fill-opacity="0.15" stroke="#388bfd" stroke-width="0.8"/>
+  <text x="675" y="188" text-anchor="middle" fill="#58a6ff" font-size="10" font-weight="600" class="font-sans">Standard</text>
+
+  <!-- Card 3: Supply -->
+  <rect x="736" y="162" width="224" height="72" rx="8" fill="url(#cardGrad)" stroke="#21262d" stroke-width="1"/>
+  <text x="754" y="184" fill="#8b949e" font-size="10" font-weight="700" letter-spacing="0.6" class="font-sans">TOTAL SUPPLY</text>
+  <text x="754" y="214" fill="#3fb950" font-size="22" font-weight="700" class="font-sans">100,000,000</text>
+  <rect x="898" y="174" width="48" height="20" rx="10" fill="#3fb950" fill-opacity="0.15" stroke="#3fb950" stroke-width="0.8"/>
+  <text x="922" y="188" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="600" class="font-sans">Fixed</text>
+
+  <!-- ================= CALLOUT ALERT BLOCK ================= -->
+  <rect x="250" y="250" width="710" height="58" rx="8" fill="#388bfd" fill-opacity="0.08" stroke="#1f6feb" stroke-width="1"/>
+  <rect x="250" y="250" width="4" height="58" rx="2" fill="#388bfd"/>
+  <!-- Info Circle Icon -->
+  <circle cx="273" cy="274" r="7.5" fill="none" stroke="#58a6ff" stroke-width="1.4"/>
+  <line x1="273" y1="273" x2="273" y2="278" stroke="#58a6ff" stroke-width="1.4"/>
+  <circle cx="273" cy="270" r="0.8" fill="#58a6ff"/>
+  <text x="292" y="271" fill="#58a6ff" font-size="12" font-weight="600" class="font-sans">Polygon PoS Mainnet Network</text>
+  <text x="292" y="291" fill="#8b949e" font-size="11" class="font-sans">Plata ($PLT) powers the ACTM Automated Crypto Teller Machine network with ultra-low latency and gas fees.</text>
+
+  <!-- ================= CODE SNIPPET BLOCK ================= -->
+  <rect x="250" y="322" width="710" height="110" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <!-- Code Header -->
+  <path d="M 250 330 A 8 8 0 0 1 258 322 L 952 322 A 8 8 0 0 1 960 330 L 960 350 L 250 350 Z" fill="#0d1117"/>
+  <line x1="250" y1="350" x2="960" y2="350" stroke="#30363d" stroke-width="1"/>
+  <!-- Window Dots -->
+  <circle cx="268" cy="336" r="4.5" fill="#ff5f56"/>
+  <circle cx="281" cy="336" r="4.5" fill="#ffbd2e"/>
+  <circle cx="294" cy="336" r="4.5" fill="#27c93f"/>
+  <text x="312" y="340" fill="#6e7681" font-size="11" class="font-mono">PlataToken.sol — Polygon Mainnet</text>
+  <!-- Mini Copy Icon -->
+  <rect x="936" y="330" width="11" height="11" rx="2" fill="none" stroke="#8b949e" stroke-width="1"/>
+
+  <!-- Code Syntax Lines -->
+  <text x="268" y="373" class="font-mono" font-size="12">
+    <tspan fill="#8b949e">// Polygon PoS Official Smart Contract</tspan>
+  </text>
+  <text x="268" y="393" class="font-mono" font-size="12">
+    <tspan fill="#ff7b72">address</tspan>
+    <tspan fill="#79c0ff"> public constant </tspan>
+    <tspan fill="#d2a8ff">PLT_CONTRACT</tspan>
+    <tspan fill="#f0f6fc"> = </tspan>
+    <tspan fill="#a5d6ff">0xc298812164bd558268f51cc8e3547804927260b2</tspan>
+    <tspan fill="#f0f6fc">;</tspan>
+  </text>
+  <text x="268" y="413" class="font-mono" font-size="12">
+    <tspan fill="#ff7b72">string</tspan>
+    <tspan fill="#79c0ff"> public constant </tspan>
+    <tspan fill="#d2a8ff">NAME</tspan>
+    <tspan fill="#f0f6fc"> = </tspan>
+    <tspan fill="#a5d6ff">"Plata Token"</tspan>
+    <tspan fill="#f0f6fc">;  </tspan>
+    <tspan fill="#ff7b72">string</tspan>
+    <tspan fill="#79c0ff"> public constant </tspan>
+    <tspan fill="#d2a8ff">SYMBOL</tspan>
+    <tspan fill="#f0f6fc"> = </tspan>
+    <tspan fill="#a5d6ff">"PLT"</tspan>
+    <tspan fill="#f0f6fc">;</tspan>
+  </text>
+
+  <!-- ================= BOTTOM PAGINATION CARD ================= -->
+  <rect x="250" y="448" width="710" height="54" rx="8" fill="url(#cardGrad)" stroke="#21262d" stroke-width="1"/>
+  <text x="270" y="468" fill="#8b949e" font-size="9" font-weight="700" letter-spacing="0.8" class="font-sans">NEXT PAGE</text>
+  <text x="270" y="488" fill="#f0f6fc" font-size="13" font-weight="600" class="font-sans">Table of Contents</text>
+  <path d="M 932 475 L 942 475 M 937 470 L 942 475 L 937 480" fill="none" stroke="#8b949e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Footer Tagline -->
+  <text x="250" y="530" fill="#484f58" font-size="11" class="font-sans">GitMe Documentation Engine • Typo FX • ACTM Project</text>
+</svg>
