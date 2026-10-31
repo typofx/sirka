@@ -1,0 +1,35 @@
+/* ANIMAÇÃO DO SPINNER */
+@keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+
+/* ANIMAÇÃO DOS BLOCOS (Onda: 1 -> 2 -> 3 -> 2 -> repete) */
+@keyframes jump-spin-1 {
+    0%     { transform: translateY(0) rotate(0deg); }
+    12.5%  { transform: translateY(-20px) rotate(180deg); }
+    25%    { transform: translateY(0) rotate(360deg); }
+    100%   { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes jump-spin-2 {
+    0%     { transform: translateY(0) rotate(0deg); }
+    
+    25%    { transform: translateY(0) rotate(0deg); }
+    37.5%  { transform: translateY(-20px) rotate(180deg); }
+    50%    { transform: translateY(0) rotate(360deg); }
+    
+    75%    { transform: translateY(0) rotate(360deg); }
+    87.5%  { transform: translateY(-20px) rotate(540deg); }
+    100%   { transform: translateY(0) rotate(720deg); }
+}
+
+@keyframes jump-spin-3 {
+    0%     { transform: translateY(0) rotate(0deg); }
+    
+    50%    { transform: translateY(0) rotate(0deg); }
+    62.5%  { transform: translateY(-20px) rotate(180deg); }
+    75%    { transform: translateY(0) rotate(360deg); }
+    
+    100%   { transform: translateY(0) rotate(360deg); }
+}

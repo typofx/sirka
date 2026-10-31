@@ -1,0 +1,872 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Plata Brand Assets */
+  --brand-white: #FFFFFF;
+  --brand-light-gray: #EBECF0;
+  --brand-silver-gray: #CCCCCC;
+  --brand-medium-gray: #5A5A5A;
+  --brand-dark-gray: #3D3D3D;
+  --brand-soft-lilac: #DBA7D8;
+  --brand-plum: #974478;
+  --brand-purple: #6E46AE;
+  --brand-electric-purple: #8247E5;
+  --brand-magenta: #DD137B;
+
+  /* Semantic Mapping */
+  --color-primary: var(--brand-purple);
+  --color-primary-hover: var(--brand-electric-purple);
+  --color-background: var(--brand-white);
+  --color-text-main: var(--brand-dark-gray);
+  --color-text-muted: var(--brand-medium-gray);
+  --color-success: #28a745;
+  --color-danger: #d9534f;
+  --color-border: var(--brand-silver-gray);
+  --bg-gradient: linear-gradient(90deg, var(--brand-light-gray) 0%, var(--brand-white) 50%, var(--brand-light-gray) 100%);
+  --font-family-main: 'Montserrat', sans-serif;
+  --font-size-base: 15px;
+  --font-size-button: 20px;
+  --font-size-title: 16px;
+  --font-size-small: 14px;
+  --card-width-sm: 330px;
+  --card-width-lg: 330px;
+  --card-height-sm: 362px;
+  --card-height-lg: 550px;
+  --border-radius-card: 8px;
+  --border-radius-button: 6px;
+  --button-height: 45px;
+}
+
+
+.table-footer{
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+h2, h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--brand-light-gray);
+    font-family: var(--font-family-main);
+    /*font-size: var(--font-size-base);*/
+    overflow-x: hidden;
+    margin:0px;
+    padding:0px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    color: var(--color-text-main);
+}
+
+
+label {
+    color: var(--color-text-main);
+    margin-left: 10px;
+}
+
+input {
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-main);
+    text-align: center;
+    width: 100%;
+    padding: 12px 4px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-button);
+    background-color: var(--brand-white);
+}
+
+.input-amount {
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-main);
+    text-align: center;
+    width: 210px;
+    padding: 12px 4px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-button);
+    background-color: var(--brand-white);
+    height: 50px;
+}
+
+input:not(:placeholder-shown) {
+    font-size: var(--font-size-base);
+    background-color: var(--brand-white);
+    font-family: var(--font-family-main);
+}
+
+input:placeholder-shown {
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-main);
+    background-color: var(--brand-white);
+}
+
+/* Override default browser autofill styles */
+
+
+.amount {
+    display: inline-block;
+    font-family: var(--font-family-main);
+}
+
+.select-list {
+    font-size: var(--font-size-base);
+    width: 106px;
+    height: 50px;
+    padding: 12px 4px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-button);
+    text-align: center;
+    background-color: var(--brand-white);
+}
+
+.option{
+    font-family: var(--font-family-main);
+}
+
+
+.plata-card hr, .plata-card-lg hr, .plata-card-xs hr {
+    width: 100% !important;
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 12px 0 !important;
+}
+
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+
+.modal-content {
+
+  background-color: #fefefe;
+
+  margin: auto;
+
+  padding: 20px;
+
+  border: 1px solid #888;
+
+  width: 250px;
+
+}
+
+.div-label {
+    font-family: var(--font-family-main);
+    text-align: left;
+    color: var(--color-text-main);
+}
+
+.close {
+    font-size: 1px;
+}
+
+.close:hover,
+
+.close:focus {
+
+  color: #000;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+}
+
+
+
+button {
+    display:none;
+    height: 1px;
+    width: 1px;
+} 
+
+.buttonBuyNow {
+    width: 230px;
+    height: 45px;
+    display: block;
+    margin: 0 auto;
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-button); 
+    border: 0px solid #3D3D3D;
+    color: white; 
+    font-size: 20px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    font-family: var(--font-family-main);
+    text-decoration: none;
+}
+
+.buttonBuyNow:hover {
+    width: 230px;
+    height: 45px;
+    display: block;
+    background-color: var(--color-primary-hover); 
+    border-radius: var(--border-radius-button); 
+    border: 0px solid #3D3D3D;
+    color: white; 
+    font-size: 20px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    font-family: var(--font-family-main); 
+} 
+
+.box {
+    margin-top: 40px;
+    padding-top:15px;
+    width: 330px;
+    
+    border-radius: 10px;
+    border: 0px solid #9897A9;
+    background-color: #DDDDDD;
+}
+
+.boxSmallButtons {
+    height: 50px;
+    width: 300px;
+    background-color: #AAAAAA;
+}
+
+
+
+.btnMenuWallet{
+
+ width: 210px;
+
+ height: 40px;
+
+ visibility: visible;
+
+ background-color: #3D3D3D; 
+
+ border-radius: var(--border-radius-button); 
+
+ border: 1px solid #3D3D3D;
+
+ color: white; 
+
+ font-size: var(--font-size-base); 
+
+ cursor: pointer; 
+
+ transition: 0.3s; 
+
+ font-family: var(--font-family-main); 
+
+ }
+
+ 
+
+ .btnMenuWallet:hover{ 
+
+ background-color: black; 
+
+ color: white; 
+
+ border-color: var(--color-primary-hover); 
+
+ transition: 0.3s; 
+
+}
+
+
+
+.btnPower{
+
+ background: no-repeat center/45% url("powerButton.png");
+
+ background-color: #3D3D3D;
+
+ border-radius: 29px; 
+
+ border: 1px solid #3D3D3D; 
+
+ color: white; 
+
+ font-size: 16px; 
+
+ padding: 10px 20px; 
+
+ cursor: pointer; 
+
+ transition: 0.3s;
+
+ align-content: flex-end;
+
+ }
+
+ 
+
+ .btnPower:hover{ 
+
+ background-color: #2D2D2D;
+
+ color: #081F2D; 
+
+ border-color: var(--color-primary-hover); 
+
+ transition: 0.3s; 
+
+}
+
+
+
+.btnCopyContract{
+    background: no-repeat center/80% url("copy.png");
+    background-color: #3D3D3D;
+    border-radius: 29px; 
+    border: 1px solid #3D3D3D; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    transition: 0.3s;
+    align-content: flex-end;
+}
+
+ 
+
+ .btnCopyContract:hover{ 
+    background-color: #2D2D2D;
+    color: #081F2D; 
+    border-color: var(--color-primary-hover); 
+    transition: 0.3s;
+    visibility: hidden;
+}
+
+.invisibled {
+    font-size: 0px;
+    text-align: center;
+    border-style: none;
+    resize: none;
+    width: 0px;
+    height: 0px;
+}
+
+.message-title-success {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-success);
+}
+
+.message-title-expired {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-danger);
+}
+
+.message-title-voided {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-danger);
+}
+
+.message-text {
+    padding: 10px 15px;
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+    color: var(--color-text-main);
+    text-align: center;
+}
+
+.btn-redirect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.btn-redirect:hover {
+    display: flex;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo-pix {
+    height: 24px;
+}
+
+.div-label-center {
+    font-family: var(--font-family-main);
+    text-align: center;
+    color: var(--color-text-main);
+}
+
+.plata-card h2, .plata-card h3,
+.plata-card-xs h2, .plata-card-xs h3,
+.plata-card-lg h2, .plata-card-lg h3 {
+    margin-top: 0;
+}
+
+.plata-card {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-card);
+    width: var(--card-width-sm);
+    min-height: var(--card-height-sm);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.plata-card-xs {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-card);
+    width: var(--card-width-sm);
+    min-height: fit-content;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.plata-card-lg {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-card);
+    width: var(--card-width-lg);
+    min-height: var(--card-height-lg);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#form1 br, #form2 br, #processingContainer br, #expiredContainer br {
+    display: none;
+}
+#form1 .div-label {
+    margin-top: 10px;
+}
+#form2 .div-label {
+    margin-top: 10px;
+}
+#form2 a, #form2 .timer {
+    font-size: 13px;
+    display: block;
+    height: 16px;
+    line-height: 16px;
+}
+#form1 b, #form2 b, #form3 b {
+    font-size: 14px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.hrline {
+    margin: 12px 0 !important;
+}
+#showMe {
+    display: none;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 16px;
+    height: 16px;
+}
+
+/* Extra alignments for dynamic payment cards */
+.message-text {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--color-text-muted);
+}
+#processingContainer > div:first-of-type {
+    margin-top: 40px !important;
+}
+.logo-container br {
+    display: none;
+}
+.logo-container {
+    margin: 5px 0;
+}
+.logo-container img {
+    margin-bottom: 5px;
+}
+
+#qrCodeContainer > br {
+    display: none;
+}
+#qrCodeContainer .logo-pix {
+    margin: 15px 0;
+}
+
+/* Success Page Specific Styles */
+.plata-success-card {
+    background-color: var(--brand-white);
+    width: 480px; /* Slightly wider than standard cards for details */
+    max-width: 100%;
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: var(--font-family-main);
+    color: var(--color-text-main);
+}
+
+.success-breadcrumb {
+    padding: 20px;
+    font-size: 13px;
+    color: var(--color-text-main);
+    text-align: center;
+    border-bottom: 1px solid var(--brand-light-gray);
+}
+.success-breadcrumb .arrow {
+    font-size: 10px;
+    margin: 0 4px;
+    color: var(--brand-silver-gray);
+}
+
+.success-banner {
+    background-color: #E8F5E9; /* Light green */
+    color: var(--color-success);
+    text-align: center;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.success-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.success-icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.success-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.success-explorer-link {
+    font-size: 13px;
+    color: var(--brand-silver-gray);
+    text-decoration: underline;
+}
+
+.success-conversion {
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.success-conversion .crypto-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-conversion .arrow-conversion {
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.success-wallet-address {
+    font-size: 13px;
+    color: var(--brand-silver-gray);
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+.success-invoice {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.download-invoice-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--color-text-main);
+    text-decoration: underline;
+    margin-top: 5px;
+}
+
+.success-fees {
+    font-size: 12px;
+    color: var(--brand-silver-gray);
+    margin-bottom: 30px;
+}
+
+.success-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.success-actions a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 45px;
+    border-radius: var(--border-radius-button);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-solid {
+    background-color: black;
+    color: white;
+}
+.btn-solid:hover {
+    background-color: #333;
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+}
+.btn-outline:hover {
+    background-color: var(--brand-light-gray);
+}
+
+/* Success Page Specific Styles - Transferred from success.php */
+body.success-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.success-banner {
+    background-color: #E8F5E9; /* Light green */
+    color: var(--color-success);
+    text-align: center;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    border-top-left-radius: var(--border-radius-card);
+    border-top-right-radius: var(--border-radius-card);
+}
+
+.success-body {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.success-icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.success-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    color: var(--color-text-main);
+}
+
+.success-conversion {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    color: var(--color-text-main);
+}
+
+.success-wallet-address {
+    font-size: 11px;
+    color: var(--brand-silver-gray);
+    margin-top: 5px;
+    margin-bottom: 25px;
+    word-break: break-all;
+}
+
+.success-invoice {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 25px;
+}
+
+
+button {
+    font-family: var(--font-family-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form1, #form2, #form3 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 0px !important;
+}
+
+.cancel-link, .action-link {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    font-size: 13px !important;
+    color: var(--color-primary);
+    font-family: var(--font-family-main);
+    display: inline-block !important;
+    background: none;
+    cursor: pointer;
+    width: auto !important;
+    height: auto !important;
+}
+
+.cancel-link {
+    padding-bottom: 16px;
+}
+
+.action-link {
+    padding: 0 !important;
+    height: 16px;
+    min-height: 0;
+    line-height: 16px;
+}
+
+.cancel-link:hover, .action-link:hover {
+    color: var(--color-primary-hover);
+}
+
+.timer-highlight {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    display: inline-block;
+    min-width: 44px;
+    text-align: center;
+}
+
+/* Hack para forçar a fonte no autocomplete do Chrome */
+
+@keyframes autofillHack {
+    to {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        color: var(--color-text-main);
+        background-color: transparent;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--brand-white) inset !important;
+    -webkit-text-fill-color: var(--color-text-main) !important;
+    -webkit-animation: autofillHack 1ms forwards !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    animation: autofillHack 1ms forwards !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 15px !important;
+}
+
+
+
+
+
+input:-webkit-autofill::first-line {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 15px !important;
+}
+
+/* Custom Autofill Dropdown Styles */
+.custom-autofill-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--brand-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-button, 5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 0 0;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.custom-autofill-list li {
+    padding: 12px 15px;
+    font-size: 15px;
+    font-family: var(--font-family-main);
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.custom-autofill-list li:hover {
+    background-color: var(--brand-light-gray, #EBECF0);
+}
+
+
