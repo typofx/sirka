@@ -7,21 +7,21 @@ $(document).ready(function () {
     $spin.addClass("fa-spin");
 
     $.ajax({
-      url: "https://www.typofx.ie/sirka/pauloalves/ajax.json/PLTUSD.json",
+      url: "https://www.typofx.ie/.scr/library/json/plata.token/USD.json",
       type: "GET",
       dataType: "json",
       cache: false,
       success: function (res) {
         if (res) {
-          if (res.PLTUSD) {
-            $("#info-price").text(res.PLTUSD + " USD");
+          if (res.pc) {
+            $("#info-price").text(res.pc + " USD");
           }
-          if (res.MKCUSD) {
-            $("#info-market-cap").text(res.MKCUSD + " USD");
+          if (res.mk) {
+            $("#info-market-cap").text(res.mk + " USD");
           }
-          const now = new Date();
-          const formattedTime = formatLastUpdateDate(now);
-          $("#info-last-updated").text(formattedTime);
+          if (res.dt) {
+          $("#info-last-updated").text(res.dt);
+          }
         }
       },
       complete: function () {

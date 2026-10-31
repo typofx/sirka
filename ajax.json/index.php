@@ -47,15 +47,11 @@
             <div class="metrics-list">
                 <div class="metric-item">
                     <span class="metric-label">Market Capitalization :</span>
-                    <span class="metric-value" id="info-market-cap">-- USD</span>
+                    <span class="metric-value" id="info-market-cap">* * *</span>
                 </div>
                 <div class="metric-item">
                     <span class="metric-label">Last Updated :</span>
-                    <span class="metric-value" id="info-last-updated">--</span>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-label">Status :</span>
-                    <span class="metric-value"><i class="fa-solid fa-arrows-rotate status-spin"></i></span>
+                    <span class="metric-value" id="info-last-updated">* * *</span>
                 </div>
             </div>
         </div>
