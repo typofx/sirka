@@ -1,0 +1,27 @@
+body {
+    font-family: monospace;
+    padding: 2px;
+    padding-right: 200px;
+    background-color: #fff;
+    }
+table, th, td { text-align: center; }
+
+th.th-price {
+    text-align: center !important;
+}
+
+.fiat-price, .asset-price {
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: right !important;
+    padding-right: 15px !important;
+}
+
+#priceCurrencySelect {
+    font-family: monospace;
+    font-size: 14px;
+    margin-left: 4px;
+    padding: 1px 3px;
+    cursor: pointer;
+}
