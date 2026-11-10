@@ -1,0 +1,209 @@
+[
+    {
+        "id": 1,
+        "nmid": "plata.token",
+        "name": "Plata Token",
+        "ticker": "PLT",
+        "contract": "0xc298812164bd558268f51cc6e3b8b5daaf0b6341",
+        "decimals": 4,
+        "network": "polygon"
+    },
+    {
+        "id": 2,
+        "nmid": "polygon",
+        "name": "Polygon Ecosystem Token",
+        "ticker": "POL",
+        "contract": "0x0000000000000000000000000000000000001010",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 3,
+        "nmid": "wrap.ethereum",
+        "name": "Wrapped Ether",
+        "ticker": "WETH",
+        "contract": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 4,
+        "nmid": "wrap.bitcoin",
+        "name": "(PoS) Wrapped BTC",
+        "ticker": "WBTC",
+        "contract": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+        "decimals": 8,
+        "network": "polygon"
+    },
+    {
+        "id": 5,
+        "nmid": "usdcicle.coin",
+        "name": "USD Coin",
+        "ticker": "USDC",
+        "contract": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "decimals": 6,
+        "network": "polygon"
+    },
+    {
+        "id": 6,
+        "nmid": "tether.usd",
+        "name": "(PoS) Tether USD",
+        "ticker": "USDT",
+        "contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "decimals": 6,
+        "network": "polygon"
+    },
+    {
+        "id": 7,
+        "nmid": "dai.stablecoin",
+        "name": "Dai Stablecoin",
+        "ticker": "DAI",
+        "contract": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 8,
+        "nmid": "wrap.ust",
+        "name": "Wrapped UST Token",
+        "ticker": "USTC",
+        "contract": "0x692597b009d13c4049a947cab2239b7d6517875f",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 9,
+        "nmid": "",
+        "name": "USD Coin (PoS)",
+        "ticker": "USDCE",
+        "contract": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "decimals": 6,
+        "network": "polygon"
+    },
+    {
+        "id": 10,
+        "nmid": "paxos.gold",
+        "name": "Paxos Gold",
+        "ticker": "PAXG",
+        "contract": "0x553d3D295e0f695B9228246232eDF400ed3560B5",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 11,
+        "nmid": "",
+        "name": "(PoS) Binance USD",
+        "ticker": "BUSD",
+        "contract": "0xdAb529f40E671A1D4bF91361c21bf9f0C9712ab7",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 12,
+        "nmid": "",
+        "name": "Wrapped BNB (Wormhole)",
+        "ticker": "WBNB",
+        "contract": "0xecdcb5b88f8e3c15f95c720c51c71c9e2080525d",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 13,
+        "nmid": "",
+        "name": "STASIS EURS Token (PoS)",
+        "ticker": "EURS",
+        "contract": "0xE111178A87A3BFf0c8d18DECBa5798827539Ae99",
+        "decimals": 2,
+        "network": "polygon"
+    },
+    {
+        "id": 14,
+        "nmid": "real",
+        "name": "Brazilian Real",
+        "ticker": "BRL",
+        "contract": "",
+        "decimals": 2,
+        "network": "fiduciary coin"
+    },
+    {
+        "id": 15,
+        "nmid": "euro",
+        "name": "Euro",
+        "ticker": "EUR",
+        "contract": "",
+        "decimals": 2,
+        "network": "fiduciary coin"
+    },
+    {
+        "id": 16,
+        "nmid": "usd.dollar",
+        "name": "United States Dollar",
+        "ticker": "USD",
+        "contract": "",
+        "decimals": 2,
+        "network": "fiduciary coin"
+    },
+    {
+        "id": 17,
+        "nmid": "monerium.eur",
+        "name": "Monerium EUR emoney",
+        "ticker": "EURe",
+        "contract": "0x18ec0A6E18E5bc3784fDd3a3634b31245ab704F6",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 18,
+        "nmid": "",
+        "name": "Tether Gold",
+        "ticker": "XAUT",
+        "contract": "0xF1815bd50389c46847f0Bda824eC8da914045D14",
+        "decimals": 6,
+        "network": "polygon"
+    },
+    {
+        "id": 19,
+        "nmid": "",
+        "name": "BRZ Token",
+        "ticker": "BRZ",
+        "contract": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 20,
+        "nmid": "brla.token",
+        "name": "BRLA Token",
+        "ticker": "BRLA",
+        "contract": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 21,
+        "nmid": "curve.dao",
+        "name": "CurveFi DAO (PoS)",
+        "ticker": "CRV",
+        "contract": "0x172370d5cd63279efa6d502dab29171933a610af",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 22,
+        "nmid": "wrap.polygon",
+        "name": "Wrapped Polygon Token",
+        "ticker": "WPOL",
+        "contract": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "decimals": 18,
+        "network": "polygon"
+    },
+    {
+        "id": 23,
+        "nmid": "",
+        "name": "JPY Coin",
+        "ticker": "JPYC",
+        "contract": "0xe7c3d8c9a439fede00d2600032d5db0be71c3c29",
+        "decimals": 18,
+        "network": "polygon"
+    }
+]
