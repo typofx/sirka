@@ -119,8 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 
-    // Redirect to the same page to show the message
-    echo "<script>window.location.href = 'assets.add.php';</script>";
+    $redirectUrl = isset($_POST['add_and_close']) ? 'index.php' : 'assets.add.php';
+    echo "<script>window.location.href = '{$redirectUrl}';</script>";
     exit();
 }
 
@@ -160,6 +160,7 @@ if (isset($_SESSION['message'])) {
         <input type="text" id="nmid" name="nmid" placeholder="ex: usdc.coin"><br><br>
 
         <input type="submit" value="Add Asset">
+        <input type="submit" name="add_and_close" value="Add Asset & Close">
         <a href="index.php">[Back]</a>
     </form>
 
