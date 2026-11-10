@@ -85,7 +85,7 @@ $(document).ready(function() {
             }).done(function(data) {
                 var price = (data && data.pc !== undefined && data.pc !== '') ? data.pc : null;
                 var parsedNum = (price !== null) ? parseFloat(String(price).replace(/,/g, '').trim()) : NaN;
-                var formatted = (!isNaN(parsedNum)) ? parsedNum.toFixed(8) : '0.00000000';
+                var formatted = (!isNaN(parsedNum)) ? parsedNum.toLocaleString('en-US', { minimumFractionDigits: 8, maximumFractionDigits: 8 }) : '0.00000000';
                 priceCache[cacheKey] = formatted;
                 setCellPrice($cell, formatted, isNaN(parsedNum) || parsedNum === 0);
             }).fail(function() {
