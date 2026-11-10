@@ -122,7 +122,7 @@ if ($result->num_rows > 0) {
             <td>{$on_at_exmachina}</td>
             <td>
                 <a href='assets.edit.php?id={$id}'><img src='https://www.typofx.ie/.scr/.img/icon-edit.svg' style='height:18'></a> 
-                <a href='assets.delete.php?id={$id}' onclick='return confirm(\"Are you sure?\")'><img src='https://www.typofx.ie/.scr/.img/icon-delete.svg' style='height:18'></a>
+                <a href='assets.delete.php?id={$id}' onclick='return confirmDeleteAsset({$id});'><img src='https://www.typofx.ie/.scr/.img/icon-delete.svg' style='height:18'></a>
             </td>
         </tr>"; 
         $cont++;
@@ -164,6 +164,13 @@ $conn->close();
     <script src="https://www.typofx.ie/.scr/jquery-3.5.1.js"></script>
     <script src="https://www.typofx.ie/.scr/jquery.dataTables.min.js"></script>
     <script src="asset.jquery.js?v=<?php echo time(); ?>"></script>
+    <script>
+    function confirmDeleteAsset(id) {
+        if (!confirm("Are you sure?")) return false;
+        location.href = 'assets.delete.php?id=' + id + (confirm("Do you also want to delete the folder?") ? '&delete_folder=1' : '');
+        return false;
+    }
+    </script>
 </head>
 <body>
 

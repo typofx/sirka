@@ -110,6 +110,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $last_id = $conn->insert_id;
         $_SESSION['message'] = "New record created successfully. ID: " . $last_id . " <a href='assets.edit.php?id=" . $last_id . "'><i class='fa-solid fa-pen-to-square'>edit</i></a>";
         $stmt->close();
+
+        if (!empty($_POST['create_folder']) && !empty($nmid)) {
+            @mkdir($_SERVER['DOCUMENT_ROOT'] . '/.scr/library/json/' . trim($nmid), 0755, true);
+        }
+
         require_once __DIR__ . '/update_assets_json.php';
         update_assets_json($conn);
     } else {
@@ -158,6 +163,10 @@ if (isset($_SESSION['message'])) {
 
         <label for="nmid">NMID:</label>
         <input type="text" id="nmid" name="nmid" placeholder="ex: usdc.coin"><br><br>
+
+        <label style="cursor: pointer; user-select: none;">
+            <input type="checkbox" id="create_folder" name="create_folder" value="1"> Create folder
+        </label><br><br>
 
         <input type="submit" value="Add Asset">
         <input type="submit" name="add_and_close" value="Add Asset & Close">
