@@ -1,0 +1,43 @@
+{
+  "whitelist_tlds": [
+    ".ae", ".af", ".al", ".ao", ".app", ".aq", ".ar", ".at", ".au", ".aw",
+    ".ax", ".ba", ".bb", ".bd", ".be", ".bf", ".bg", ".bh", ".bi", ".biz",
+    ".bj", ".bm", ".bn", ".bo", ".bq", ".br", ".bs", ".bt", ".bw", ".by",
+    ".ca", ".cf", ".cg", ".ch", ".ci", ".ck", ".cl", ".cm", ".cn", ".co",
+    ".com", ".cr", ".cw", ".cx", ".cy", ".cz", ".de", ".dk", ".dm", ".do",
+    ".dz", ".ec", ".edu", ".ee", ".eg", ".eh", ".er", ".es", ".et", ".eu",
+    ".fi", ".fj", ".fk", ".fo", ".fr", ".gd", ".ge", ".gf", ".gh", ".gi",
+    ".gl", ".gm", ".gn", ".gov", ".gp", ".gq", ".gr", ".gs", ".gt", ".gu",
+    ".gw", ".gy", ".hk", ".hm", ".hn", ".hr", ".ht", ".hu", ".id", ".ie",
+    ".il", ".im", ".in", ".info", ".int", ".io", ".iq", ".ir", ".it", ".je",
+    ".jm", ".jo", ".jp", ".ke", ".kh", ".ki", ".km", ".kn", ".kp", ".kr",
+    ".kw", ".ky", ".kz", ".lb", ".lc", ".li", ".lk", ".lr", ".ls", ".lt",
+    ".lu", ".lv", ".ma", ".mc", ".me", ".mg", ".mh", ".mil", ".mk", ".ml",
+    ".mm", ".mn", ".mo", ".mp", ".mq", ".mr", ".mt", ".mu", ".mv", ".mw",
+    ".mx", ".my", ".mz", ".na", ".nc", ".ne", ".net", ".nf", ".ng", ".ni",
+    ".nl", ".no", ".np", ".nr", ".nz", ".om", ".org", ".pa", ".pf", ".pg",
+    ".ph", ".pk", ".pl", ".pm", ".pr", ".ps", ".pt", ".py", ".qa", ".ro",
+    ".ru", ".rw", ".sa", ".sb", ".sd", ".se", ".sg", ".si", ".sk", ".sl",
+    ".sm", ".sn", ".so", ".sr", ".ss", ".st", ".su", ".sv", ".sy", ".sz",
+    ".tc", ".td", ".tg", ".th", ".tj", ".tl", ".tn", ".tr", ".tt", ".tv",
+    ".tw", ".tz", ".ua", ".ug", ".uk", ".us", ".uy", ".uz", ".va", ".vc",
+    ".ve", ".vg", ".vi", ".vn", ".vu", ".wf", ".ye", ".za", ".zm", ".zw"
+  ],
+  "whitelist_providers": [
+    "gmail", "googlemail", "outlook", "hotmail", "live", "msn", "yahoo", "ymail", "icloud", "me",
+    "mac", "aol", "protonmail", "proton", "zoho", "mail", "gmx", "yandex", "list", "bk",
+    "naver", "daum", "hanmail", "qq", "163", "126", "sina", "uol", "bol", "terra",
+    "ig", "globomail", "t-online", "web", "orange", "wanadoo", "free", "sfr", "libero", "virgilio",
+    "btinternet", "sky", "comcast", "verizon", "cox", "att", "x", "twitter", "typofx", "plata"
+  ],
+  "disposable_domains": [
+    "10minutemail.com", "10minutemail.net", "mailinator.com", "guerrillamail.com", "guerrillamail.net", "guerrillamail.org",
+    "guerrillamail.biz", "guerrillamailblock.com", "guerrillamail.de", "sharklasers.com", "dispostable.com", "yopmail.com",
+    "yopmail.net", "yopmail.org", "cool.fr.nf", "jetable.org", "trashmail.com", "trashmail.at",
+    "trashmail.net", "temp-mail.org", "temp-mail.ru", "temp-mail.net", "fakeinbox.com", "getairmail.com",
+    "mintemail.com", "discard.email", "spam4.me", "stopspam.org", "grr.la", "0-mail.com",
+    "anonbox.net", "boximail.com", "dr-mail.net", "emailondeck.com", "getnada.com", "inboxalias.com",
+    "maildrop.cc", "mailnull.com", "mktomail.com", "moakt.com", "mytrashmail.com", "owlymail.com",
+    "pobly.com", "tempmail.net", "throwawaymail.com", "trbvm.com"
+  ]
+}

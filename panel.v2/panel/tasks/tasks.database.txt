@@ -1,0 +1,16 @@
+TASKS DATABASE
+
+┌ trainee_tasks
+├── assignment
+├── deployed
+├── head
+├── last_updated
+├── person
+├── status
+├── tasks_hours
+├── tasks_programming_languages
+├── trainee_tasks_github
+├── trainee_tasks_link
+├── trainee_tasks_youtube
+├── trainee_tasks_code
+└── type
