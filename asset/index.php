@@ -99,7 +99,11 @@ if ($result->num_rows > 0) {
                 "decimals" => $decimal_value
             ];
             if ((int)($on_at_exmachina ?? 0) === 1) {
-                $jsonExmData["chain"][strtolower(trim($rawNetwork ?? ''))][strtolower($trimmedContract)] = $jsonNewData["chain"][strtolower(trim($rawNetwork ?? ''))][strtolower($trimmedContract)];
+                $networkKey = strtolower(trim($rawNetwork ?? ''));
+                if (!isset($jsonExmData["chain"][$networkKey])) {
+                    $jsonExmData["chain"][$networkKey] = [];
+                }
+                $jsonExmData["chain"][$networkKey][] = strtolower($trimmedContract);
             }
             $contNew++;
         }
@@ -130,7 +134,7 @@ if ($result->num_rows > 0) {
 }
 file_put_contents(__DIR__ . '/assets.json', json_encode(array_values($jsonData), JSON_PRETTY_PRINT));
 file_put_contents(__DIR__ . '/json-new.json', json_encode($jsonNewData, JSON_PRETTY_PRINT));
-file_put_contents(__DIR__ . '/JSON-EXM.json', json_encode($jsonExmData, JSON_PRETTY_PRINT));
+file_put_contents(__DIR__ . '/json-exm.json', json_encode($jsonExmData, JSON_PRETTY_PRINT));
 
 $fiatQuery = "SELECT id, ticker FROM granna80_bdlinks.fiat ORDER BY id ASC";
 $fiatResult = $conn->query($fiatQuery);
@@ -179,7 +183,7 @@ $conn->close();
     <a href="assets.add.php">[Add]</a>
     <a href="assets.json?v=<?php echo time(); ?>" target="_blank">[JSON]</a>
     <a href="json-new.json?v=<?php echo time(); ?>" target="_blank">[JSON2]</a>
-    <a href="JSON-EXM.json?v=<?php echo time(); ?>" target="_blank">[JSON-EXM]</a>
+    <a href="json-exm.json?v=<?php echo time(); ?>" target="_blank">[JSON-EXM]</a>
     <a href="/fiats/fiat.add.php">[Add Fiat]</a>
     <a href="https://typofx.ie/sirka/murilofurtado/fiats/index.php">[Fiats]</a>
     <label style="margin-left: 10px; cursor: pointer; user-select: none;">
