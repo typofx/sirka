@@ -99,7 +99,11 @@ if ($result->num_rows > 0) {
                 "decimals" => $decimal_value
             ];
             if ((int)($on_at_exmachina ?? 0) === 1) {
-                $jsonExmData["chain"][strtolower(trim($rawNetwork ?? ''))][strtolower($trimmedContract)] = $jsonNewData["chain"][strtolower(trim($rawNetwork ?? ''))][strtolower($trimmedContract)];
+                $networkKey = strtolower(trim($rawNetwork ?? ''));
+                if (!isset($jsonExmData["chain"][$networkKey])) {
+                    $jsonExmData["chain"][$networkKey] = [];
+                }
+                $jsonExmData["chain"][$networkKey][] = strtolower($trimmedContract);
             }
             $contNew++;
         }
@@ -122,7 +126,7 @@ if ($result->num_rows > 0) {
             <td>{$on_at_exmachina}</td>
             <td>
                 <a href='assets.edit.php?id={$id}'><img src='https://www.typofx.ie/.scr/.img/icon-edit.svg' style='height:18'></a> 
-                <a href='assets.delete.php?id={$id}' onclick='return confirm(\"Are you sure?\")'><img src='https://www.typofx.ie/.scr/.img/icon-delete.svg' style='height:18'></a>
+                <a href='assets.delete.php?id={$id}' onclick='return confirmDeleteAsset({$id});'><img src='https://www.typofx.ie/.scr/.img/icon-delete.svg' style='height:18'></a>
             </td>
         </tr>"; 
         $cont++;
@@ -130,7 +134,7 @@ if ($result->num_rows > 0) {
 }
 file_put_contents(__DIR__ . '/assets.json', json_encode(array_values($jsonData), JSON_PRETTY_PRINT));
 file_put_contents(__DIR__ . '/json-new.json', json_encode($jsonNewData, JSON_PRETTY_PRINT));
-file_put_contents(__DIR__ . '/JSON-EXM.json', json_encode($jsonExmData, JSON_PRETTY_PRINT));
+file_put_contents(__DIR__ . '/json-exm.json', json_encode($jsonExmData, JSON_PRETTY_PRINT));
 
 $fiatQuery = "SELECT id, ticker FROM granna80_bdlinks.fiat ORDER BY id ASC";
 $fiatResult = $conn->query($fiatQuery);
@@ -164,6 +168,13 @@ $conn->close();
     <script src="https://www.typofx.ie/.scr/jquery-3.5.1.js"></script>
     <script src="https://www.typofx.ie/.scr/jquery.dataTables.min.js"></script>
     <script src="asset.jquery.js?v=<?php echo time(); ?>"></script>
+    <script>
+    function confirmDeleteAsset(id) {
+        if (!confirm("Are you sure?")) return false;
+        location.href = 'assets.delete.php?id=' + id + (confirm("Do you also want to delete the folder?") ? '&delete_folder=1' : '');
+        return false;
+    }
+    </script>
 </head>
 <body>
 
@@ -172,7 +183,7 @@ $conn->close();
     <a href="assets.add.php">[Add]</a>
     <a href="assets.json?v=<?php echo time(); ?>" target="_blank">[JSON]</a>
     <a href="json-new.json?v=<?php echo time(); ?>" target="_blank">[JSON2]</a>
-    <a href="JSON-EXM.json?v=<?php echo time(); ?>" target="_blank">[JSON-EXM]</a>
+    <a href="json-exm.json?v=<?php echo time(); ?>" target="_blank">[JSON-EXM]</a>
     <a href="/fiats/fiat.add.php">[Add Fiat]</a>
     <a href="https://typofx.ie/sirka/murilofurtado/fiats/index.php">[Fiats]</a>
     <label style="margin-left: 10px; cursor: pointer; user-select: none;">

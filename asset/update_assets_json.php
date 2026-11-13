@@ -54,7 +54,10 @@ function update_assets_json($conn = null) {
                 ];
                 $jsonNewData["chain"][$chain][strtolower($contract)] = $entry;
                 if ((int)($row['on_at_exmachina'] ?? 0) === 1) {
-                    $jsonExmData["chain"][$chain][strtolower($contract)] = $entry;
+                    if (!isset($jsonExmData["chain"][$chain])) {
+                        $jsonExmData["chain"][$chain] = [];
+                    }
+                    $jsonExmData["chain"][$chain][] = strtolower($contract);
                 }
                 $contNew++;
             }
@@ -62,7 +65,7 @@ function update_assets_json($conn = null) {
 
         file_put_contents(__DIR__ . '/assets.json', json_encode(array_values($jsonData), JSON_PRETTY_PRINT));
         file_put_contents(__DIR__ . '/json-new.json', json_encode($jsonNewData, JSON_PRETTY_PRINT));
-        file_put_contents(__DIR__ . '/JSON-EXM.json', json_encode($jsonExmData, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '/json-exm.json', json_encode($jsonExmData, JSON_PRETTY_PRINT));
     }
 
     if ($should_close && $conn) {

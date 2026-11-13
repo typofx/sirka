@@ -33,6 +33,7 @@ $asset = mysqli_fetch_assoc($result_select);
 mysqli_stmt_close($stmt_select);
 
 if (isset($_POST['submit'])) {
+    $old_nmid = $asset['nmid'];
     $asset['nmid'] = trim($_POST['nmid'] ?? '');
     $asset['contract_name'] = trim($_POST['contract_name'] ?? '');
     $asset['aka_contract_name'] = trim($_POST['aka_contract_name'] ?? '');
@@ -95,6 +96,18 @@ if (isset($_POST['submit'])) {
         $is_updated = mysqli_stmt_execute($stmt);
         if ($is_updated) {
             echo "Asset updated successfully.";
+
+            $json_dir = $_SERVER['DOCUMENT_ROOT'] . '/.scr/library/json/';
+            if ($old_nmid !== '' && $asset['nmid'] !== '' && $old_nmid !== $asset['nmid'] && is_dir($json_dir . $old_nmid)) {
+                if (is_dir($json_dir . $asset['nmid'])) {
+                    echo " Folder '{$old_nmid}' was not renamed: folder '{$asset['nmid']}' already exists.";
+                } elseif (rename($json_dir . $old_nmid, $json_dir . $asset['nmid'])) {
+                    echo " Folder renamed from '{$old_nmid}' to '{$asset['nmid']}'.";
+                } else {
+                    echo " Could not rename folder '{$old_nmid}'.";
+                }
+            }
+
             require_once __DIR__ . '/update_assets_json.php';
             update_assets_json($conn);
         } else {
